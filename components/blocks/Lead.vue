@@ -1,7 +1,7 @@
 <template>
   <div class="lead">
     <h1 class="lead__title">#Раклечится</h1>
-    <button class="lead__button"></button>
+    <div class="lead__button"></div>
   </div>
 </template>
 
@@ -16,12 +16,14 @@ export default {};
 
 .lead__title {
   font-weight: 800;
-  font-size: 92px;
-  line-height: 111px;
+  font-size: 5.75em;
+  line-height: 1.2;
   text-align: center;
   padding-top: 290px;
   padding-bottom: 290px;
   color: #fff;
   text-transform: uppercase;
+}
+.lead__button {
 }
 </style>

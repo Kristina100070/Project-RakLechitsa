@@ -3,47 +3,11 @@
     <main class="content">
       <lead class="content__lead" />
 
-      <section class="description content__description">
-        <h2 class="description__title">
-          Истории людей, победивших рак, но не свои привычки
-        </h2>
-        <p class="description__subtitle">
-          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
-          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
-          с их историями.
-        </p>
-        <div class="description__video">
-          <iframe></iframe>
-          <p class="description__video video__subtitle">
-            Все видео вы можете найте на нашем <a href="#">YouTube канале</a>.
-          </p>
-        </div>
-      </section>
+      <description class="content__description" />
 
-      <section class="rectangle content__rectangle">
-        <h2 class="rectangle__title">И в отличие от рака, #Этонелечится</h2>
-      </section>
+      <rectangle class="content__rectangle" />
 
-      <section class="stories content__stories">
-        <h2 class="stories__title">Истории неизлечимых превычек</h2>
-        <div class="stories__container">
-          <div class="stories__story">
-            <img class="story__image" />
-            <h2 class="story__title">Владимир Тен</h2>
-            <p class="story__subtitle">
-              Я всегда читаю книги с конца, - и это не лечится, в отличие от
-              рака.
-            </p>
-          </div>
-
-          <div class="stories__story">
-            <img class="story__image" />
-            <h2 class="story__title"></h2>
-            <p class="story__subtitle"></p>
-          </div>
-        </div>
-        <button class="stories__more-button"></button>
-      </section>
+      <stories class="content__stories" />
 
       <section class="rectangle content__rectangle">
         <h2 class="rectangle__title">
@@ -136,31 +100,36 @@
 
 <script>
 import Lead from '@/components/blocks/Lead';
+import Description from '@/components/blocks/Description';
+import Rectangle from '@/components/blocks/Rectangle';
+import Stories from '@/components/blocks/Stories';
 export default {
   components: {
     lead: Lead,
+    description: Description,
+    rectangle: Rectangle,
+    stories: Stories,
   },
 };
 </script>
 
 <style>
-@import url('https://rsms.me/inter/inter.css');
-html {
-  font-family: 'Inter', sans-serif;
-}
-
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-}
-
 .content__lead {
   margin: 0 auto;
+}
+
+.content__description {
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 74px;
+}
+
+.content__rectangle {
+  margin: 0 auto;
+}
+
+.content__stories {
+  margin: 0 auto;
+  padding-top: 100px;
 }
 </style>
