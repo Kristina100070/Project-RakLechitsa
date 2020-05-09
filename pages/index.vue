@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <main class="content">
-      <lead />
+      <lead class="content__lead" />
 
       <section class="description content__description">
         <h2 class="description__title">
@@ -158,5 +158,9 @@ html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+}
+
+.content__lead {
+  margin: 0 auto;
 }
 </style>
