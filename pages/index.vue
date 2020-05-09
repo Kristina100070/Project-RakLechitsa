@@ -1,68 +1,162 @@
 <template>
   <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        rak-lechitsa
-      </h1>
-      <h2 class="subtitle">
-        projekt for rak lechitsa
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+    <main class="content">
+      <lead />
+
+      <section class="description content__description">
+        <h2 class="description__title">
+          Истории людей, победивших рак, но не свои привычки
+        </h2>
+        <p class="description__subtitle">
+          Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
+          страхи. Но это точно не рак. Рак лечится. Лучшее доказательство — люди
+          с их историями.
+        </p>
+        <div class="description__video">
+          <iframe></iframe>
+          <p class="description__video video__subtitle">
+            Все видео вы можете найте на нашем <a href="#">YouTube канале</a>.
+          </p>
+        </div>
+      </section>
+
+      <section class="rectangle content__rectangle">
+        <h2 class="rectangle__title">И в отличие от рака, #Этонелечится</h2>
+      </section>
+
+      <section class="stories content__stories">
+        <h2 class="stories__title">Истории неизлечимых превычек</h2>
+        <div class="stories__container">
+          <div class="stories__story">
+            <img class="story__image" />
+            <h2 class="story__title">Владимир Тен</h2>
+            <p class="story__subtitle">
+              Я всегда читаю книги с конца, - и это не лечится, в отличие от
+              рака.
+            </p>
+          </div>
+
+          <div class="stories__story">
+            <img class="story__image" />
+            <h2 class="story__title"></h2>
+            <p class="story__subtitle"></p>
+          </div>
+        </div>
+        <button class="stories__more-button"></button>
+      </section>
+
+      <section class="rectangle content__rectangle">
+        <h2 class="rectangle__title">
+          Рассказывайте ваши истории в инстаграмм #Этонелечится
+        </h2>
+      </section>
+
+      <section class="social-network content__social-network">
+        <h2 class="social-network__title">Инстаграм</h2>
+        <p class="social-network__subtitle">
+          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
+          Все истории, где нет нецензурных выражений и запрещенного контента
+          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
+          пропустили вашу историю.
+        </p>
+        <img class="social0network__image" />
+      </section>
+
+      <section class="your-story content__your-story">
+        <div class="two-columns">
+          <div class="two-columns__main-info">
+            <h2 class="two-columns__title">Расскажите свою историю</h2>
+            <p class="two-columns__subtitle">
+              Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+              поделиться своей историей неизлечимых привычек, навязчивых идей и
+              болезненных привязанностей.
+            </p>
+          </div>
+
+          <div class="two-columns__form">
+            <p class="form__variant">1-й вариант</p>
+            <p class="form__variant">2-й вариант</p>
+            <p class="form__info">
+              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
+              историю после проверки. Пожалуйста, заполняйте все пункты
+              корректно, если вы испытаете какие-то сложности, воспользуйтесь
+              2-м вариантом.
+            </p>
+            <button class="form__button">Заполнить форму</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="statistics content__statistics">
+        <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
+        <div class="statistics-card">
+          <h2 class="statistics-card__title"></h2>
+          <img class="statistics-card__image" />
+          <p class="statistics-card__info"></p>
+          <p class="statistics-card__source"></p>
+        </div>
+      </section>
+
+      <section class="cover content__cover">
+        <h2 class="cover__title">#Раклечится</h2>
+        <div class="cover__about">
+          <div class="cover__heading">
+            <h2 class="cover__text-title">О проекте</h2>
+            <p class="cover__text-subtitle">
+              Этот проект был создан благотворительным фондом Константина
+              Хабенского.
+            </p>
+          </div>
+
+          <div class="cover__lead">
+            <h3 class="cover__lead-title">Рак Лечится</h3>
+            <p class="cover__lead-subtitle">Фонд Хабенского</p>
+            <div class="cover__lead-text">
+              <p class="cover__lead-paragraph">
+                Есть вещи, которые не лечатся. Особенности характера, страстные
+                увлечения, привычки, ставшие частью нашего «я», фобии, которые
+                мы приобрели в детстве. Список можно продолжать до
+                бесконечности, но одна болезнь в него точно не войдет. Эта
+                болезнь — рак. Рак лечится, и лучшее доказательство — люди с их
+                неизлечимыми особенностями, которые сумели победить рак.
+              </p>
+              <p class="cover__lead-paragraph">
+                Рак лечится — проект Благотворительного Фонда Константина
+                Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
+                изменить отношение людей к раку и заставить каждого поверить:
+                онкологическое заболевание — это не приговор.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
-
+import Lead from '@/components/blocks/Lead';
 export default {
   components: {
-    Logo,
+    lead: Lead,
   },
 };
 </script>
 
 <style>
+@import url('https://rsms.me/inter/inter.css');
+html {
+  font-family: 'Inter', sans-serif;
+}
+
 .container {
+  max-width: 1440px;
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
 }
 </style>
