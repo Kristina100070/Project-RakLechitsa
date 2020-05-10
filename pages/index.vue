@@ -9,11 +9,14 @@
 
       <stories class="content__stories" />
 
-      <section class="rectangle content__rectangle">
-        <h2 class="rectangle__title">
-          Рассказывайте ваши истории в инстаграмм #Этонелечится
-        </h2>
-      </section>
+      <rectangle class="content__rectangle">
+        <slot
+          ><h2 class="rectangle__title">
+            Рассказывайте ваши истории в инстаграмм
+            <span class="rectangle__title-span">#Этонелечится</span>
+          </h2></slot
+        >
+      </rectangle>
 
       <section class="social-network content__social-network">
         <h2 class="social-network__title">Инстаграм</h2>
@@ -110,6 +113,16 @@ export default {
     rectangle: Rectangle,
     stories: Stories,
   },
+  data() {
+    return {
+      description: [
+        {
+          id: '1',
+          title: 'Рассказывайте ваши истории в инстаграмм #Этонелечится',
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -130,6 +143,39 @@ export default {
 
 .content__stories {
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+  .content__description {
+    padding-top: 90px;
+    padding-bottom: 64px;
+  }
+
+  .content__stories {
+    padding: 90px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .content__description {
+    padding-top: 80px;
+    padding-bottom: 54px;
+  }
+
+  .content__stories {
+    padding: 80px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .content__description {
+    padding-top: 80px;
+    padding-bottom: 54px;
+  }
+
+  .content__stories {
+    padding: 80px 0;
+  }
 }
 </style>
