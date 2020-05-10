@@ -15,51 +15,11 @@
         </h2>
       </section>
 
-      <section class="social-network content__social-network">
-        <h2 class="social-network__title">Инстаграм</h2>
-        <p class="social-network__subtitle">
-          Два раза в неделю мы просматриваем все посты по хештегу #этонелечится.
-          Все истории, где нет нецензурных выражений и запрещенного контента
-          попадают сюда. Следите за правильным написанием хештега, чтобы мы не
-          пропустили вашу историю.
-        </p>
-        <img class="social0network__image" />
-      </section>
+      <socialNetwork />
 
-      <section class="your-story content__your-story">
-        <div class="two-columns">
-          <div class="two-columns__main-info">
-            <h2 class="two-columns__title">Расскажите свою историю</h2>
-            <p class="two-columns__subtitle">
-              Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-              поделиться своей историей неизлечимых привычек, навязчивых идей и
-              болезненных привязанностей.
-            </p>
-          </div>
+      <yourStory />
 
-          <div class="two-columns__form">
-            <p class="form__variant">1-й вариант</p>
-            <p class="form__variant">2-й вариант</p>
-            <p class="form__info">
-              Заполнить подробную форму прямо на сайте и мы опубликуем вашу
-              историю после проверки. Пожалуйста, заполняйте все пункты
-              корректно, если вы испытаете какие-то сложности, воспользуйтесь
-              2-м вариантом.
-            </p>
-            <button class="form__button">Заполнить форму</button>
-          </div>
-        </div>
-      </section>
-
-      <section class="statistics content__statistics">
-        <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
-        <div class="statistics-card">
-          <h2 class="statistics-card__title"></h2>
-          <img class="statistics-card__image" />
-          <p class="statistics-card__info"></p>
-          <p class="statistics-card__source"></p>
-        </div>
-      </section>
+      <statistics />
 
       <section class="cover content__cover">
         <h2 class="cover__title">#Раклечится</h2>
@@ -103,12 +63,19 @@ import Lead from '@/components/blocks/Lead';
 import Description from '@/components/blocks/Description';
 import Rectangle from '@/components/blocks/Rectangle';
 import Stories from '@/components/blocks/Stories';
+import SocialNetwork from '@/components/blocks/Social-network';
+import YourStory from '@/components/blocks/Your-story';
+import Statistics from '@/components/blocks/Statistics';
+
 export default {
   components: {
     lead: Lead,
     description: Description,
     rectangle: Rectangle,
     stories: Stories,
+    socialNetwork: SocialNetwork,
+    yourStory: YourStory,
+    statistics: Statistics,
   },
 };
 </script>
