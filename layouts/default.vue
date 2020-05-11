@@ -4,12 +4,22 @@
   </div>
 </template>
 
+<script>
+import Header from '@/components/Header';
+export default {
+  components: {
+    'main-header': Header,
+  },
+};
+</script>
 <style>
 .root {
   max-width: 1440px;
   margin: auto;
+ dev-index-gen
   font-family: 'Inter', sans-serif;
 }
+
 
 html {
   font-size: 16px;
@@ -20,14 +30,12 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
 }
-
 .button--green {
   display: inline-block;
   border-radius: 4px;
@@ -36,12 +44,10 @@ html {
   text-decoration: none;
   padding: 10px 30px;
 }
-
 .button--green:hover {
   color: #fff;
   background-color: #3b8070;
 }
-
 .button--grey {
   display: inline-block;
   border-radius: 4px;
@@ -51,7 +57,6 @@ html {
   padding: 10px 30px;
   margin-left: 15px;
 }
-
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;

@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+
     <main class="content">
       <lead class="content__lead" />
 
@@ -58,6 +59,7 @@
         </div>
       </section>
     </main>
+
   </div>
 </template>
 
