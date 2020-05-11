@@ -1,24 +1,24 @@
 @font-face {
   src: url(./Inter-ExtraBold.woff),
-       url(./Inter-ExtraBold.woff2);
+  url(./Inter-ExtraBold.woff2);
   font-family: 'Inter';
   font-weight: 800;
 }
 @font-face {
   src: url(./Inter-Medium.woff),
-       url(./Inter-Medium.woff2);
+  url(./Inter-Medium.woff2);
   font-family: 'Inter';
   font-weight: 500;
 }
 @font-face {
   src: url(./Inter-Regular.woff),
-       url(./Inter-Regular.woff2);
+  url(./Inter-Regular.woff2);
   font-family: 'Inter';
   font-weight: normal;
 }
 @font-face {
   src: url(./Inter-SemiBold.woff),
-       url(./Inter-SemiBold.woff2);
+  url(./Inter-SemiBold.woff2);
   font-family: 'Inter';
   font-weight: 600;
 }

@@ -1,6 +1,5 @@
 <template>
   <div class="root">
-    <main-header />
     <nuxt />
   </div>
 </template>
@@ -17,8 +16,11 @@ export default {
 .root {
   max-width: 1440px;
   margin: auto;
-  font-family: 'Inter';
+ dev-index-gen
+  font-family: 'Inter', sans-serif;
 }
+
+
 html {
   font-size: 16px;
   word-spacing: 1px;

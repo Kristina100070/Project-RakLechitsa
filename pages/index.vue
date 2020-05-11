@@ -1,42 +1,150 @@
 <template>
   <div class="container">
-    Место кода Ильи Подоляк и Ильи Космочева
+
+    <main class="content">
+      <lead class="content__lead" />
+
+      <description class="content__description" />
+
+      <rectangle class="content__rectangle" />
+
+      <stories class="content__stories" />
+
+      <rectangle class="content__rectangle">
+        <slot
+          ><h2 class="rectangle__title">
+            Рассказывайте ваши истории в инстаграмм
+            <span class="rectangle__title-span">#Этонелечится</span>
+          </h2></slot
+        >
+      </rectangle>
+
+      <socialNetwork />
+
+      <yourStory />
+
+      <statistics />
+
+      <section class="cover content__cover">
+        <h2 class="cover__title">#Раклечится</h2>
+        <div class="cover__about">
+          <div class="cover__heading">
+            <h2 class="cover__text-title">О проекте</h2>
+            <p class="cover__text-subtitle">
+              Этот проект был создан благотворительным фондом Константина
+              Хабенского.
+            </p>
+          </div>
+
+          <div class="cover__lead">
+            <h3 class="cover__lead-title">Рак Лечится</h3>
+            <p class="cover__lead-subtitle">Фонд Хабенского</p>
+            <div class="cover__lead-text">
+              <p class="cover__lead-paragraph">
+                Есть вещи, которые не лечатся. Особенности характера, страстные
+                увлечения, привычки, ставшие частью нашего «я», фобии, которые
+                мы приобрели в детстве. Список можно продолжать до
+                бесконечности, но одна болезнь в него точно не войдет. Эта
+                болезнь — рак. Рак лечится, и лучшее доказательство — люди с их
+                неизлечимыми особенностями, которые сумели победить рак.
+              </p>
+              <p class="cover__lead-paragraph">
+                Рак лечится — проект Благотворительного Фонда Константина
+                Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
+                изменить отношение людей к раку и заставить каждого поверить:
+                онкологическое заболевание — это не приговор.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
   </div>
 </template>
 
 <script>
-export default {};
+import Lead from '@/components/blocks/Lead';
+import Description from '@/components/blocks/Description';
+import Rectangle from '@/components/blocks/Rectangle';
+import Stories from '@/components/blocks/Stories';
+import SocialNetwork from '@/components/blocks/Social-network';
+import YourStory from '@/components/blocks/Your-story';
+import Statistics from '@/components/blocks/Statistics';
+
+export default {
+  components: {
+    lead: Lead,
+    description: Description,
+    rectangle: Rectangle,
+    stories: Stories,
+    socialNetwork: SocialNetwork,
+    yourStory: YourStory,
+    statistics: Statistics,
+  },
+  data() {
+    return {
+      description: [
+        {
+          id: '1',
+          title: 'Рассказывайте ваши истории в инстаграмм #Этонелечится',
+        },
+      ],
+    };
+  },
+};
 </script>
 
-<style scoped>
-.container {
+<style>
+.content__lead {
   margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.content__description {
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 74px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.content__rectangle {
+  margin: 0 auto;
 }
 
-.links {
-  padding-top: 15px;
+.content__stories {
+  margin: 0 auto;
+  padding: 100px 0;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1439px) {
+  .content__description {
+    padding-top: 90px;
+    padding-bottom: 64px;
+  }
+
+  .content__stories {
+    padding: 90px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1279px) {
+  .content__description {
+    padding-top: 80px;
+    padding-bottom: 54px;
+  }
+
+  .content__stories {
+    padding: 80px 0;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .content__description {
+    padding-top: 80px;
+    padding-bottom: 54px;
+  }
+
+  .content__stories {
+    padding: 80px 0;
+  }
 }
 </style>
