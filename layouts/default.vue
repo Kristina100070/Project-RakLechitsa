@@ -16,10 +16,8 @@ export default {
 .root {
   max-width: 1440px;
   margin: auto;
- dev-index-gen
   font-family: 'Inter', sans-serif;
 }
-
 
 html {
   font-size: 16px;
