@@ -1,12 +1,20 @@
 <template>
-  <div class="menu">
-    <a href="" class="menu_link">Главная</a>
-    <a href="" class="menu_link">Истории</a>
+  <div>
+    <nav class="menu">
+      <menu-link />
+      <a href="" class="menu_link">Рассказать историю</a>
+    </nav>
   </div>
 </template>
 
 <script>
-export default {};
+import Menu from '@/components/ui/Menu';
+
+export default {
+  components: {
+    'menu-link': Menu,
+  },
+};
 </script>
 
 <style scoped>

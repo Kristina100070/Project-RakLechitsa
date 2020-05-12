@@ -1,14 +1,18 @@
 <template>
   <div class="root">
+    <main-header />
     <nuxt />
+    <main-footer />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 export default {
   components: {
     'main-header': Header,
+    'main-footer': Footer,
   },
 };
 </script>
@@ -16,10 +20,8 @@ export default {
 .root {
   max-width: 1440px;
   margin: auto;
- dev-index-gen
   font-family: 'Inter', sans-serif;
 }
-
 
 html {
   font-size: 16px;

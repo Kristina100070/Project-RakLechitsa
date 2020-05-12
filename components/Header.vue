@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import Menu from '@/components/ui/Menu';
+import MainMenu from '@/components/ui/MainMenu';
 
 export default {
   components: {
-    'main-menu': Menu,
+    'main-menu': MainMenu,
   },
 };
 </script>
