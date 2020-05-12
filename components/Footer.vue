@@ -18,28 +18,28 @@
 </template>
 
 <script>
-import Menu from '@/components/ui/Menu';
+import LinkMenu from '@/components/ui/LinkMenu';
 
 export default {
   components: {
-    'menu-link': Menu,
+    'menu-link': LinkMenu,
   },
 };
 </script>
 
 <style scoped>
 .footer {
+  padding-left: 60px;
+  padding-right: 60px;
   width: 100%;
   height: 356px;
-  background-color: gray;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  padding-left: 60px;
-  padding-right: 60px;
 }
 .footer__info {
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -53,11 +53,23 @@ export default {
   line-height: 36px;
 }
 .footer__link {
+  width: 300px;
+  height: 108px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
 }
 .footer__copyright {
-  justify-content: space-around;
-  flex-direction: column;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 18px;
+  color: #898989;
 }
 </style>

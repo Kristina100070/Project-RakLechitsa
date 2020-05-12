@@ -80,6 +80,7 @@ export default {
     yourStory: YourStory,
     statistics: Statistics,
   },
+
   data() {
     return {
       description: [

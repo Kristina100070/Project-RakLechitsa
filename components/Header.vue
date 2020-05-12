@@ -3,16 +3,16 @@
     <h1 class="header__logo">
       Проект Благотворительного Фонда Константина Хабенского
     </h1>
-    <main-menu />
+    <main-menu @btnClick="$emit('btnClick')" />
   </header>
 </template>
 
 <script>
-import MainMenu from '@/components/ui/MainMenu';
+import Menu from '@/components/ui/Menu';
 
 export default {
   components: {
-    'main-menu': MainMenu,
+    'main-menu': Menu,
   },
 };
 </script>
@@ -20,7 +20,6 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  background-color: gray;
   min-height: 72px;
   display: flex;
   justify-content: space-between;
