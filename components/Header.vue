@@ -3,7 +3,7 @@
     <h1 class="header__logo">
       Проект Благотворительного Фонда Константина Хабенского
     </h1>
-    <main-menu />
+    <main-menu @btnClick="$emit('btnClick')" />
   </header>
 </template>
 

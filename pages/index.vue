@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-
     <main class="content">
       <lead class="content__lead" />
 
@@ -59,7 +58,6 @@
         </div>
       </section>
     </main>
-
   </div>
 </template>
 
@@ -82,6 +80,7 @@ export default {
     yourStory: YourStory,
     statistics: Statistics,
   },
+
   data() {
     return {
       description: [

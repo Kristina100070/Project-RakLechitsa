@@ -1,14 +1,36 @@
 <template>
   <div class="root">
+    <overlay v-if="PopupShown" @clickOverlay="PopupHandler"></overlay>
+    <popup v-if="PopupShown" @closeClick="PopupHandler">
+      <quiz></quiz>
+    </popup>
+    <main-header @btnClick="PopupHandler" />
     <nuxt />
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header';
+import Popup from '@/components/blocks/Popup';
+import Quiz from '@/components/blocks/Quiz';
+import Overlay from '@/components/ui/Overlay';
+
 export default {
   components: {
     'main-header': Header,
+    popup: Popup,
+    quiz: Quiz,
+    overlay: Overlay,
+  },
+  methods: {
+    PopupHandler() {
+      this.PopupShown = !this.PopupShown;
+    },
+  },
+  data() {
+    return {
+      PopupShown: false,
+    };
   },
 };
 </script>
@@ -16,10 +38,8 @@ export default {
 .root {
   max-width: 1440px;
   margin: auto;
- dev-index-gen
   font-family: 'Inter', sans-serif;
 }
-
 
 html {
   font-size: 16px;
