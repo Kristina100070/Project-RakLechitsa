@@ -1,8 +1,7 @@
 <template>
   <div>
     <nav class="menu">
-      <a href="" class="menu_link">Главная</a>
-      <a href="" class="menu_link">Истории</a>
+      <link-menu />
       <Button @btnClick="$emit('btnClick')" className="button_menu">{{
         text
       }}</Button>
@@ -12,9 +11,11 @@
 
 <script>
 import Button from '@/components/ui/Button';
+import LinkMenu from '@/components/ui/LinkMenu';
 export default {
   components: {
     Button,
+    'link-menu': LinkMenu,
   },
   data() {
     return {
@@ -25,11 +26,17 @@ export default {
 </script>
 
 <style scoped>
+.menu {
+  display: flex;
+  align-items: center;
+}
 .menu_link {
+  font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   margin-right: 40px;
-  color: #121212;
+  color: #5c4e4e;
+  text-decoration: none;
 }
 .menu_link:last-of-type {
   margin-right: 0;

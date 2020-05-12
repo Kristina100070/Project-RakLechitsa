@@ -20,7 +20,6 @@ export default {
 <style scoped>
 .header {
   width: 100%;
-  background-color: gray;
   min-height: 72px;
   display: flex;
   justify-content: space-between;
