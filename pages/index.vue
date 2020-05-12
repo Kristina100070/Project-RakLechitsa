@@ -80,17 +80,6 @@ export default {
     yourStory: YourStory,
     statistics: Statistics,
   },
-
-  data() {
-    return {
-      description: [
-        {
-          id: '1',
-          title: 'Рассказывайте ваши истории в инстаграмм #Этонелечится',
-        },
-      ],
-    };
-  },
 };
 </script>
 
@@ -101,8 +90,7 @@ export default {
 
 .content__description {
   margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 74px;
+  padding: 100px 60px 74px;
 }
 
 .content__rectangle {
@@ -111,39 +99,26 @@ export default {
 
 .content__stories {
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 100px 60px;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
   .content__description {
-    padding-top: 90px;
-    padding-bottom: 64px;
+    padding: 90px 50px 64px;
   }
 
   .content__stories {
-    padding: 90px 0;
+    padding: 90px 50px;
   }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .content__description {
-    padding-top: 80px;
-    padding-bottom: 54px;
+    padding: 80px 50px 54px;
   }
 
   .content__stories {
-    padding: 80px 0;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .content__description {
-    padding-top: 80px;
-    padding-bottom: 54px;
-  }
-
-  .content__stories {
-    padding: 80px 0;
+    padding: 80px 50px;
   }
 }
 </style>

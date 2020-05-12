@@ -30,9 +30,7 @@ export default {};
 
 <style scoped>
 .description {
-  max-width: 1320px;
   display: flex;
-  flex-direction: row;
 }
 
 .description__history {
@@ -114,10 +112,6 @@ export default {};
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
-  .description {
-    max-width: 1180px;
-  }
-
   .description__title {
     font-size: 1.75em;
     line-height: 1.143;
@@ -145,10 +139,6 @@ export default {};
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
-  .description {
-    max-width: 924px;
-  }
-
   .description__title {
     font-size: 1.5em;
     line-height: 1.167;
