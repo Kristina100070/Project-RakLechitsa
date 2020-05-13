@@ -7,9 +7,24 @@
       <searchinput class="search-input" />
       <searchbutton>Поиск</searchbutton>
     </form>
-    <section id="cards" class="cards">
+    <section id="cards" class="stories__container">
       <!-- делаем функцию карточек -->
-      место для карточек
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
+      <story-card></story-card>
       <!-- делаем пагинацию - разбивку по страничкам -->
       <ul class="pagination">
         <li>
@@ -43,6 +58,7 @@
 import Button from '@/components/ui/Button';
 import Searchinput from '@/components/ui/Searchinput';
 import VueAdsPageButton from '@/components/ui/VueAdsPageButton';
+import Storycard from '@/components/Storycard';
 //сюда импортировать карточки, не забыть прописать в компоненты и на страничку
 //импортнуть футер
 
@@ -51,6 +67,7 @@ export default {
     searchbutton: Button,
     searchinput: Searchinput,
     'vue-ads-pagination': VueAdsPageButton,
+    'story-card': Storycard,
   },
 };
 </script>
@@ -78,6 +95,14 @@ export default {
   display: flex;
   max-width: 466px;
   margin: 140px auto 0;
+}
+.stories__container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 40px;
+  grid-row-gap: 70px;
+  margin: 70px 0;
+  max-width: 1320px;
 }
 
 @media screen and (max-width: 1280px) {
