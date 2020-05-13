@@ -15,7 +15,7 @@ export default {};
 
 <style scoped>
 .rectangle {
-  max-width: 1320px;
+  max-width: calc(100% - 120px);
   background-color: #613a93;
   border: 1px solid #000;
 }
@@ -24,11 +24,11 @@ export default {};
   max-width: 800px;
   font-weight: normal;
   font-size: 1.875em;
-  line-height: 1.533;
+  line-height: 1.2;
   text-align: center;
   color: #ffffff;
   text-transform: uppercase;
-  padding: 20px 0;
+  padding: 17px 0;
   margin: 0 auto;
 }
 
@@ -39,7 +39,7 @@ export default {};
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
   .rectangle {
-    max-width: 1180px;
+    max-width: calc(100% - 100px);
   }
 
   .rectangle__title {
@@ -53,7 +53,7 @@ export default {};
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .rectangle {
-    max-width: 924px;
+    max-width: calc(100% - 100px);
   }
 
   .rectangle__title {

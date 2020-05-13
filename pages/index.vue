@@ -24,6 +24,8 @@
 
       <statistics />
 
+      <coverLead />
+
       <section class="cover content__cover">
         <h2 class="cover__title">#Раклечится</h2>
         <div class="cover__about">
@@ -33,27 +35,6 @@
               Этот проект был создан благотворительным фондом Константина
               Хабенского.
             </p>
-          </div>
-
-          <div class="cover__lead">
-            <h3 class="cover__lead-title">Рак Лечится</h3>
-            <p class="cover__lead-subtitle">Фонд Хабенского</p>
-            <div class="cover__lead-text">
-              <p class="cover__lead-paragraph">
-                Есть вещи, которые не лечатся. Особенности характера, страстные
-                увлечения, привычки, ставшие частью нашего «я», фобии, которые
-                мы приобрели в детстве. Список можно продолжать до
-                бесконечности, но одна болезнь в него точно не войдет. Эта
-                болезнь — рак. Рак лечится, и лучшее доказательство — люди с их
-                неизлечимыми особенностями, которые сумели победить рак.
-              </p>
-              <p class="cover__lead-paragraph">
-                Рак лечится — проект Благотворительного Фонда Константина
-                Хабенского и Leo Burnett Moscow. С его помощью мы надеемся
-                изменить отношение людей к раку и заставить каждого поверить:
-                онкологическое заболевание — это не приговор.
-              </p>
-            </div>
           </div>
         </div>
       </section>
@@ -69,6 +50,7 @@ import Stories from '@/components/blocks/Stories';
 import SocialNetwork from '@/components/blocks/Social-network';
 import YourStory from '@/components/blocks/Your-story';
 import Statistics from '@/components/blocks/Statistics';
+import CoverLead from '@/components/blocks/Cover-lead';
 
 export default {
   components: {
@@ -79,17 +61,7 @@ export default {
     socialNetwork: SocialNetwork,
     yourStory: YourStory,
     statistics: Statistics,
-  },
-
-  data() {
-    return {
-      description: [
-        {
-          id: '1',
-          title: 'Рассказывайте ваши истории в инстаграмм #Этонелечится',
-        },
-      ],
-    };
+    coverLead: CoverLead,
   },
 };
 </script>
@@ -101,8 +73,7 @@ export default {
 
 .content__description {
   margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 74px;
+  padding: 100px 60px 74px;
 }
 
 .content__rectangle {
@@ -111,39 +82,26 @@ export default {
 
 .content__stories {
   margin: 0 auto;
-  padding: 100px 0;
+  padding: 100px 60px;
 }
 
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
   .content__description {
-    padding-top: 90px;
-    padding-bottom: 64px;
+    padding: 90px 50px 64px;
   }
 
   .content__stories {
-    padding: 90px 0;
+    padding: 90px 50px;
   }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1279px) {
   .content__description {
-    padding-top: 80px;
-    padding-bottom: 54px;
+    padding: 80px 50px 54px;
   }
 
   .content__stories {
-    padding: 80px 0;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .content__description {
-    padding-top: 80px;
-    padding-bottom: 54px;
-  }
-
-  .content__stories {
-    padding: 80px 0;
+    padding: 80px 50px;
   }
 }
 </style>
