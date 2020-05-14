@@ -58,10 +58,9 @@
 import Button from '@/components/ui/Button';
 import Searchinput from '@/components/ui/Searchinput';
 import VueAdsPageButton from '@/components/ui/VueAdsPageButton';
-import Storycard from '@/components/Storycard';
+import Storycard from '@/components/blocks/Storycard';
 //сюда импортировать карточки, не забыть прописать в компоненты и на страничку
 //импортнуть футер
-
 export default {
   components: {
     searchbutton: Button,
@@ -104,7 +103,6 @@ export default {
   margin: 70px 0;
   max-width: 1320px;
 }
-
 @media screen and (max-width: 1280px) {
   .stories {
     padding-left: 50px;

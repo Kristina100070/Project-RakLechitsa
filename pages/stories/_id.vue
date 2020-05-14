@@ -3,8 +3,7 @@
 </template>
 
 <script>
-import Story from '@/components/Story';
-
+import Story from '@/components/blocks/Story';
 export default {
   components: {
     story: Story,
