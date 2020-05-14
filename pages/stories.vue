@@ -58,7 +58,7 @@
 import Button from '@/components/ui/Button';
 import Searchinput from '@/components/ui/Searchinput';
 import VueAdsPageButton from '@/components/ui/VueAdsPageButton';
-import Storycard from '@/components/Storycard';
+import Storycard from '@/components/blocks/Storycard';
 //сюда импортировать карточки, не забыть прописать в компоненты и на страничку
 //импортнуть футер
 
