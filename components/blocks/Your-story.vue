@@ -18,13 +18,23 @@
         после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
         испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
       </p>
-      <button class="form__button">Заполнить форму</button>
+      <Button className="button_section">{{ text }}</Button>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+import Button from '@/components/ui/Button';
+export default {
+  components: {
+    Button,
+  },
+  data() {
+    return {
+      text: 'Заполнить форму',
+    };
+  },
+};
 </script>
 
 <style scoped>

@@ -35,4 +35,7 @@ export default {
   line-height: 24px;
   color: #121212;
 }
+.button_section {
+  width: 280px;
+}
 </style>
