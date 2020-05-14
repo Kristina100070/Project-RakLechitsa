@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="description__video">
-      <iframe class="description__iframe"></iframe>
+      <video-iframe :url="item.video" />
       <p class="video__subtitle">
         Все видео вы можете найте на нашем
         <a href="#" class="description__link">YouTube канале</a>.
@@ -25,7 +25,17 @@
 </template>
 
 <script>
-export default {};
+import VideoIframe from '@/components/blocks/VideoIframe';
+export default {
+  components: {
+    'video-iframe': VideoIframe,
+  },
+  data() {
+    return {
+      item: { video: 'https://www.youtube.com/embed/RDfiGspcI8o' },
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -38,7 +48,7 @@ export default {};
 }
 
 .description__button {
-  margin-top: 150px;
+  margin-top: 153px;
   display: flex;
   flex-direction: row;
 }
@@ -81,6 +91,8 @@ export default {};
 }
 
 .description__video {
+  width: 867px;
+  height: 447px;
   margin-left: 40px;
 }
 
@@ -101,16 +113,6 @@ export default {};
   transition: 0.1s linear;
 }
 
-.description__iframe {
-  width: 867px;
-  height: 447px;
-  border: 0;
-  background-color: #ededed;
-  background-image: url('../../static/images/Subtract.png');
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-
 @media screen and (min-width: 1280px) and (max-width: 1439px) {
   .description__title {
     font-size: 1.75em;
@@ -120,12 +122,6 @@ export default {};
   .description__subtitle {
     font-size: 1em;
     line-height: 1.25;
-  }
-
-  .description__iframe {
-    width: 773px;
-    height: 400px;
-    background-size: 76px 76px;
   }
 
   .video__subtitle {
@@ -147,11 +143,6 @@ export default {};
   .description__subtitle {
     font-size: 0.8em;
     line-height: 1.23;
-  }
-
-  .description__iframe {
-    width: 606px;
-    height: 324px;
   }
 
   .description__button {
