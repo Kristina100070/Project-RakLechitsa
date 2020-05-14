@@ -23,6 +23,9 @@ export default {
   color: #ffffff;
   border: 0;
 }
+.button:hover {
+  cursor: pointer;
+}
 .button_menu {
   width: 222px;
   height: 54px;
