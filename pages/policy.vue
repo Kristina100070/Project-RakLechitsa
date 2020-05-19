@@ -124,6 +124,28 @@
         понятием Персональные данные.
       </li>
     </ol>
+    <h3 class="policy__subtitle">
+      4. Цели обработки персональных данных
+    </h3>
+    <ol>
+      <li class="policy__text">
+        Цель обработки персональных данных Пользователя — использование
+        персональных данных Пользователя для публикаций на сайте.
+      </li>
+      <li class="policy__text">
+        Также Оператор имеет право направлять Пользователю уведомления о новых
+        продуктах и услугах, специальных предложениях и различных событиях.
+        Пользователь всегда может отказаться от получения информационных
+        сообщений, направив Оператору письмо на адрес электронной почты
+        raklechitsa@bfkh.ru с пометкой «Отказ от уведомлениях о новых продуктах
+        и услугах и специальных предложениях».
+      </li>
+      <li class="policy__text">
+        Обезличенные данные Пользователей, собираемые с помощью сервисов
+        интернет-статистики, служат для сбора информации о действиях
+        Пользователей на сайте, улучшения качества сайта и его содержания.
+      </li>
+    </ol>
   </div>
 </template>
 
@@ -156,5 +178,65 @@ export default {};
 }
 .policy__text:last-of-type {
   margin-bottom: 90px;
+}
+@media screen and (max-width: 1439px) {
+  .policy__title {
+    font-size: 34px;
+    line-height: 44px;
+    margin-bottom: 120px;
+  }
+  .policy__subtitle {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  .policy__text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .policy__title {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 110px;
+  }
+  .policy__subtitle {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .policy__text {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .policy__title {
+    font-size: 30px;
+    line-height: 38px;
+    margin-bottom: 110px;
+  }
+  .policy__subtitle {
+    font-size: 18px;
+    line-height: 27px;
+  }
+  .policy__text {
+    font-size: 18px;
+    line-height: 27px;
+  }
+}
+@media screen and (max-width: 779px) {
+  .policy__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 60px;
+  }
+  .policy__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .policy__text {
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 </style>

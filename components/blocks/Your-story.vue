@@ -18,7 +18,7 @@
         после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
         испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
       </p>
-      <Button className="button_section">{{ text }}</Button>
+      <Button @click="showPopup" className="button_section">{{ text }}</Button>
     </div>
   </section>
 </template>
@@ -33,6 +33,11 @@ export default {
     return {
       text: 'Заполнить форму',
     };
+  },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>

@@ -10,7 +10,13 @@
 
 <script>
 export default {
-  props: ['type', 'placeholder', 'name', 'required', 'className'],
+  props: {
+    type: String,
+    placeholder: String,
+    name: String,
+    required: Boolean,
+    className: String,
+  },
 };
 </script>
 
@@ -24,10 +30,5 @@ export default {
   box-sizing: border-box;
   font-size: 18px;
   line-height: 24px;
-}
-.unput_bottom-border {
-  border: none;
-  padding: 12px 0;
-  border-bottom: 1px solid #e7e7e7;
 }
 </style>

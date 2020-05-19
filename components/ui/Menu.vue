@@ -2,9 +2,9 @@
   <div>
     <nav class="menu">
       <link-menu />
-      <Button @btnClick="$emit('btnClick')" className="button_menu">{{
-        text
-      }}</Button>
+      <nxt-button @btnClick="showPopup" className="button_menu">
+        {{ text }}</nxt-button
+      >
     </nav>
   </div>
 </template>
@@ -14,13 +14,18 @@ import Button from '@/components/ui/Button';
 import LinkMenu from '@/components/ui/LinkMenu';
 export default {
   components: {
-    Button,
+    'nxt-button': Button,
     'link-menu': LinkMenu,
   },
   data() {
     return {
       text: 'Рассказать историю',
     };
+  },
+  methods: {
+    showPopup() {
+      this.$store.commit('popup/togglePopup');
+    },
   },
 };
 </script>
