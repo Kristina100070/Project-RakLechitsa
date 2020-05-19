@@ -27,7 +27,7 @@ export default {
   cursor: pointer;
 }
 .button_menu {
-  width: 222px;
+  min-width: 188px;
   height: 54px;
   font-family: Inter;
   font-style: normal;
@@ -40,5 +40,10 @@ export default {
 }
 .button_section {
   width: 280px;
+}
+@media screen and (max-width: 1280px) {
+  .button_menu {
+    font-size: 16px;
+  }
 }
 </style>

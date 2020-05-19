@@ -14,8 +14,18 @@ export default {};
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
-  margin-right: 60px;
+  margin-right: 40px;
   color: #121212;
   text-decoration: none;
+}
+.nuxt-link-exact-active {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1280px) {
+  .menu__link {
+    font-size: 16px;
+    margin-right: 30px;
+  }
 }
 </style>
