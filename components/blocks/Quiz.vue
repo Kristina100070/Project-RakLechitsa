@@ -2,13 +2,9 @@
   <div class="quiz">
     <h3 class="quiz__title">{{ questions[currentQuestion].title }}</h3>
     <p class="quiz__text">{{ questions[currentQuestion].text }}</p>
-    <Input
-      className="unput_bottom-border"
-      type="text"
-      placeholder="Напишите тут"
-    />
+    <Input className="quiz__input" type="text" placeholder="Напишите тут" />
     <div class="quiz__container">
-      <a @click="prevQuestion" class="link" href="#">Назад</a>
+      <nxt-link @click="prevQuestion" href="#">Назад</nxt-link>
       <Button @btnClick="nextQuestion">{{ btn_text }}</Button>
     </div>
   </div>
@@ -17,6 +13,7 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import Link from '@/components/ui/Link';
 export default {
   props: {
     title: {
@@ -33,31 +30,18 @@ export default {
   components: {
     Input,
     Button,
+    'nxt-link': Link,
   },
-  methods: {
-    nextQuestion() {
-      this.currentQuestion = this.currentQuestion + 1;
-    },
-    prevQuestion() {
-      this.currentQuestion = this.currentQuestion - 1;
-    },
-  },
+
   data() {
     return {
       btn_text: 'Далее',
-      currentQuestion: 1,
-      questions: {
-        1: {
-          title: 'Шаг 1 из 12',
-          text: 'Как вас зовут?',
-        },
-        2: {
-          title: 'Шаг 2 из 12',
-          text:
-            'Было ли у вас онкологическое заболевание? Если да – расскажите, пожалуйста, кратко, какой диагноз и текущий статус.',
-        },
-      },
     };
+  },
+  computed: {
+    getCurrentQuestion() {
+      return this.$store.getters['quiz/getCurrentQuestion'];
+    },
   },
 };
 </script>
@@ -87,20 +71,15 @@ export default {
   color: #000000;
   margin-bottom: 130px;
 }
-.link {
-  font-family: Inter;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #c0c0c0;
-  text-decoration: none;
-  margin-right: 30px;
-}
+
 .quiz__container {
   display: flex;
   margin-top: 200px;
   align-items: center;
+}
+.quiz__input {
+  border: none;
+  padding: 12px 0;
+  border-bottom: 1px solid #e7e7e7;
 }
 </style>

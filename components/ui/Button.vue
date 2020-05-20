@@ -1,5 +1,8 @@
 <template>
-  <button @click="$emit('btnClick')" :class="['button', className]">
+  <button
+    @click="$emit('btnClick')"
+    :class="['button', className, { button_disabled: disabled }]"
+  >
     <slot></slot>
   </button>
 </template>
@@ -8,6 +11,7 @@
 export default {
   props: {
     className: String,
+    disabled: Boolean,
   },
 };
 </script>
@@ -40,6 +44,9 @@ export default {
 }
 .button_section {
   width: 280px;
+}
+.button_disabled {
+  background: grey;
 }
 @media screen and (max-width: 1280px) {
   .button_menu {

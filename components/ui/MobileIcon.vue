@@ -4,7 +4,7 @@
       src="../../static/images/icons8-меню.svg"
       :class="[
         'mobile-icon-menu',
-        { 'mobile-button_type_close': isMenuOpened },
+        //   { 'mobile-button_type_close': isMenuOpened },
       ]"
     />
   </div>

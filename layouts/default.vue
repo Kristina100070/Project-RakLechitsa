@@ -1,10 +1,10 @@
 <template>
   <div class="root">
-    <overlay v-if="PopupShown" @clickOverlay="PopupHandler"></overlay>
-    <popup v-if="PopupShown" @closeClick="PopupHandler">
+    <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
+    <Popup v-if="popupShown" @closeClick="closePopup">
       <quiz></quiz>
-    </popup>
-    <main-header @btnClick="PopupHandler" />
+    </Popup>
+    <main-header />
     <nuxt />
     <main-footer />
   </div>
@@ -19,23 +19,24 @@ import Overlay from '@/components/ui/Overlay';
 export default {
   components: {
     'main-header': Header,
-    popup: Popup,
+    Popup,
     quiz: Quiz,
     overlay: Overlay,
     'main-footer': Footer,
   },
   methods: {
-    PopupHandler() {
-      this.PopupShown = !this.PopupShown;
+    closePopup() {
+      this.$store.commit('popup/togglePopup');
     },
   },
-  data() {
-    return {
-      PopupShown: false,
-    };
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
+    },
   },
 };
 </script>
+
 <style>
 .root {
   max-width: 1440px;
