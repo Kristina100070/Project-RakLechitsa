@@ -50,10 +50,18 @@ export default {
     };
   },
   computed: {
-    getCurrentQuestion() {
-      return this.$store.getters['quiz/getCurrentQuestion'];
+    curentQuestion() {
+      const { quiz } = this.$store.state;
+      const { curentQuestion, questions } = quiz;
+      return questions[curentQuestion];
+    },
+    inicialAnswer() {
+      const { quiz } = this.$store.state;
+      const { curentQuestion, questions } = quiz;
+      return answers[curentQuestion];
     },
   },
+
   methods: {
     async nextQuestion() {
       await this.$store.dispatch('quiz/NEXT_QUESTION', {
