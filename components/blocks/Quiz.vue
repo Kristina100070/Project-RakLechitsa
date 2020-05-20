@@ -1,11 +1,23 @@
 <template>
   <div class="quiz">
-    <h3 class="quiz__title">{{ questions[currentQuestion].title }}</h3>
-    <p class="quiz__text">{{ questions[currentQuestion].text }}</p>
-    <Input className="quiz__input" type="text" placeholder="Напишите тут" />
+    <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+    <p>
+      <span class="quiz__text_main">{{ currentQuestion.text }}</span>
+      <span
+        v-if="currentQuestion.textAdditional"
+        class="quiz__text_additional"
+        >{{ currentQuestion.textAdditional }}</span
+      >
+    </p>
+    <Input
+      className="quiz__input"
+      type="text"
+      placeholder="Напишите тут"
+      v-model="answer"
+    />
     <div class="quiz__container">
-      <nxt-link @click="prevQuestion" href="#">Назад</nxt-link>
-      <Button @btnClick="nextQuestion">{{ btn_text }}</Button>
+      <nxt-link @lnkClick="prevQuestion" url="#">Назад</nxt-link>
+      <Button @btnClick="nextQuestion">Далее</Button>
     </div>
   </div>
 </template>
@@ -36,11 +48,32 @@ export default {
   data() {
     return {
       btn_text: 'Далее',
+      answer: '',
     };
   },
   computed: {
-    getCurrentQuestion() {
-      return this.$store.getters['quiz/getCurrentQuestion'];
+    currentQuestion() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, questions } = quiz;
+      return questions[currentQuestion] || '';
+    },
+    inicialAnswer() {
+      const { quiz } = this.$store.state;
+      const { currentQuestion, answers } = quiz;
+      return answers[currentQuestion] || '';
+    },
+  },
+
+  methods: {
+    async nextQuestion() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', {
+        answer: this.answer,
+      });
+      this.answer = this.inicialAnswer || '';
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('quiz/PREV_QUESTION');
+      this.answer = this.inicialAnswer || '';
     },
   },
 };
@@ -62,14 +95,13 @@ export default {
   color: #000000;
   margin-bottom: 40px;
 }
-.quiz__text {
+.quiz__text_main {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: #000000;
-  margin-bottom: 130px;
 }
 
 .quiz__container {
@@ -81,5 +113,6 @@ export default {
   border: none;
   padding: 12px 0;
   border-bottom: 1px solid #e7e7e7;
+  margin-top: 130px;
 }
 </style>

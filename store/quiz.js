@@ -69,16 +69,32 @@ export const state = () => ({
 });
 
 export const mutations = {
-  nextQuestion() {
-    return (state.currentQuestion = state.currentQuestion + 1);
+  saveAnswer(state, { answer, currentQuestion }) {
+    return (state.answers[currentQuestion] = answer);
   },
-  prevQuestion() {
-    return (state.currentQuestion = state.currentQuestion - 1);
+  setCurrentQuestion(state, { currentQuestion }) {
+    return (state.currentQuestion = currentQuestion);
+  },
+  setQuestions(state, questions) {
+    return (state.questions = questions);
   },
 };
 
-export const getters = {
-  getCurrentQuestion(state) {
-    return state.questions[currentQuestion];
+export const actions = {
+  async NEXT_QUESTION({ commit, state }, { answer }) {
+    const { currentQuestion } = state;
+    await commit('saveAnswer', { answer, currentQuestion });
+    await commit('setCurrentQuestion', {
+      currentQuestion: currentQuestion + 1,
+    });
+  },
+  async PREV_QUESTION({ commit, state }) {
+    const { currentQuestion } = state;
+    if (currentQuestion === 1) {
+      return;
+    }
+    await commit('setCurrentQuestion', {
+      currentQuestion: currentQuestion - 1,
+    });
   },
 };
