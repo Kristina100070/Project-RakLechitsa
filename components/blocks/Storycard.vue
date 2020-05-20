@@ -1,16 +1,14 @@
 <template>
-  <div class="stories__story">
-    <img class="story__image" src="'../../static/images/pr4545.jpg" />
-    <h2 class="story__title">Владимир Тен</h2>
-    <p class="story__subtitle">
-      Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-    </p>
+  <div class="stories__story" @click="$emit('cardClick')">
+    <img :src="src" :alt="author" class="story__image" />
+    <p class="story__title">{{ author }}</p>
+    <p class="story__subtitle">{{ text }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['url'],
+  props: ['src', 'author', 'text', 'link'],
 };
 </script>
 
@@ -36,5 +34,31 @@ export default {
   font-size: 0.875em;
   line-height: 1.286;
   color: #666;
+}
+
+@media screen and (max-width: 1280px) {
+  .story__image {
+    width: 265px;
+    height: 265px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .story__image {
+    width: 208px;
+    height: 208px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .story__image {
+    width: 216px;
+    height: 216px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .story__image {
+    width: 290px;
+    height: 290px;
+  }
 }
 </style>

@@ -7,66 +7,70 @@
       <searchinput class="search-input" />
       <searchbutton>Поиск</searchbutton>
     </form>
-    <section id="cards" class="stories__container">
-      <!-- делаем функцию карточек -->
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <story-card></story-card>
-      <!-- делаем пагинацию - разбивку по страничкам -->
-      <ul class="pagination">
-        <li>
-          <vue-ads-pagination class="pagination-button">1</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">2</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">3</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">4</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">5</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">6</vue-ads-pagination>
-        </li>
-        <li>
-          <vue-ads-pagination class="pagination-button">7</vue-ads-pagination>
-        </li>
-      </ul>
-    </section>
+
+    <!-- делаем функцию карточек -->
+    <ul class="stories__container">
+      <li v-for="card in storiesToRender" :key="card.id" class="stories__item">
+        <story-card
+          :src="card.image"
+          :author="card.title"
+          :text="card.subtitle"
+          @cardClick="goToDetail(card.id)"
+        />
+      </li>
+    </ul>
+    <!-- делаем пагинацию - разбивку по страничкам -->
+    <pagination
+      :totalItems="this.$store.state.stories.cards.length"
+      :itemsPerPage="itemsPerPage"
+      @onPageChanged="changeStartIndex"
+    />
   </main>
 </template>
 
 <script>
-//импортнуть хедер
 import Button from '@/components/ui/Button';
 import Searchinput from '@/components/ui/Searchinput';
-import VueAdsPageButton from '@/components/ui/VueAdsPageButton';
+import Pagination from '@/components/ui/Pagination';
 import Storycard from '@/components/blocks/Storycard';
-//сюда импортировать карточки, не забыть прописать в компоненты и на страничку
-//импортнуть футер
+import Storiessss from '@/components/blocks/Storiessss';
+
 export default {
   components: {
     searchbutton: Button,
     searchinput: Searchinput,
-    'vue-ads-pagination': VueAdsPageButton,
+    pagination: Pagination,
     'story-card': Storycard,
+    storiess: Storiessss,
+  },
+  methods: {
+    goToDetail(id) {
+      this.$router.push(`/stories/${id}`);
+    },
+    changeStartIndex(index) {
+      this.startIndex = (index - 1) * this.itemsPerPage;
+    },
+  },
+
+  data() {
+    return {
+      itemsPerPage: 16,
+      startIndex: 0,
+    };
+  },
+
+  computed: {
+    storiesToRender() {
+      const { stories } = this.$store.state;
+      return stories.cards.filter(
+        (item, idx) =>
+          idx >= this.startIndex &&
+          idx <= this.startIndex + this.itemsPerPage - 1
+      );
+    },
+    cards() {
+      return this.$store.getters['stories/getCards'];
+    },
   },
 };
 </script>
@@ -89,19 +93,15 @@ export default {
   margin-top: 60px;
   padding: 0;
 }
-.pagination {
-  list-style: none;
-  display: flex;
-  max-width: 466px;
-  margin: 140px auto 0;
-}
 .stories__container {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, 300px);
   grid-column-gap: 40px;
   grid-row-gap: 70px;
   margin: 70px 0;
   max-width: 1320px;
+  padding: 0;
+  list-style: none;
 }
 @media screen and (max-width: 1280px) {
   .stories {
