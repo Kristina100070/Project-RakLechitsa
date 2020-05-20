@@ -5,6 +5,8 @@
     :placeholder="placeholder"
     :name="name"
     :required="required"
+    v-model="content"
+    @input="handleInput"
   />
 </template>
 
@@ -16,6 +18,17 @@ export default {
     name: String,
     required: Boolean,
     className: String,
+    value: String,
+  },
+  data() {
+    return {
+      content: this.value,
+    };
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit('input', this.content);
+    },
   },
 };
 </script>
