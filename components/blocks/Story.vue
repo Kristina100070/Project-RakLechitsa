@@ -2,7 +2,6 @@
   <div class="story">
     <div class="story__container">
       <img src="" alt="" class="story__photo" />
-      <!-- <div class="story__title-container">-->
       <h2 class="story__title">
         Александр Тарханов: «Я не могу победить свою пунктуальность в отличии от
         рака»
@@ -11,11 +10,39 @@
         <nxt-link href="" class="story__link">{{ link_text }}</nxt-link>
         <p class="story__date">{{ date }}</p>
       </div>
-      <!-- </div>-->
     </div>
     <p class="story__text">
       Я из военной семьи. Отец хоть и не был военным сам, но нас всех держал в
       ежовых рукавицах. Думаю, поэтому мы и выросли такими ответственными.
+    </p>
+    <p class="story__text">
+      У меня дома до сих пор стоят часы в каждой комнате, хотя они и не нужны
+      особо — я сам чувствую, опаздываю куда-то или нет, отстаю от нужного
+      графика или опережаю. Вот такие встроенные внутренние часы! Будильник мне
+      тоже не нужен — я всегда встаю раньше. Одеваюсь тоже быстро, как в армии,
+      за 45 секунд.
+    </p>
+    <p class="story__text story__accent">
+      «В футболе если команда опоздала на 15 минут, ей засчитывается поражение».
+    </p>
+    <p class="story__text">
+      Опаздывать я тоже не люблю, на все встречи прихожу заранее. Если знаю, что
+      могу попасть по дороге в пробку, то не еду на машине. В аэропорт приезжаю
+      задолго до начала регистрации. Лучше подожду и кофе попью, чем опоздаю!
+    </p>
+    <p class="story__text">
+      Когда мне было 16 лет, мне в школе геометрию нужно было пересдавать. Я
+      билеты выучил, знал абсолютно все. Пришел в нужное время, а учительница —
+      нет. Ну, я какое-то время подождал ее и ушел. Потом она спрашивала:
+      «Почему не дождался?». Я ответил: «В футболе если команда опоздала на 15
+      минут, ей засчитывается поражение». Экзамен мне все-таки поставили! Сейчас
+      если кто-то из футболистов моей команды опаздывает — начинаю злиться, могу
+      и прикрикнуть потом. А если кто-то опоздал на тренировку перед игрой —
+      все, подготовка насмарку. Я сразу начинаю думать тогда: «Значит, точно
+      проиграем». Такая болезненная пунктуальность уже не лечится. В отличие от
+      рака.
+    </p>
+    <p class="story__text story__accent">
       «Сейчас если кто-то из футболистов моей команды опаздывает — начинаю
       злиться, могу и прикрикнуть потом. А если кто-то опоздал на тренировку
       перед игрой — все, подготовка насмарку. Я сразу начинаю думать тогда:
@@ -54,7 +81,7 @@ export default {
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
-  border: 1px solid red;
+  margin-bottom: 130px;
 }
 .story__photo {
   width: 580px;
@@ -62,12 +89,6 @@ export default {
   background: #ededed;
   grid-row-start: 1;
   grid-row-end: 3;
-}
-
-.story__photo:after {
-  content: '';
-  display: block;
-  padding-bottom: 100%;
 }
 
 .story__title {
@@ -82,7 +103,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #efefef;
-  align-items: end;
+  align-items: flex-end;
 }
 .story__link {
   font-size: 18px;
@@ -92,16 +113,21 @@ export default {
   text-align: center;
 }
 .story__text {
-  margin: 130px auto 70px;
   font-size: 22px;
   line-height: 136%;
   color: #000000;
   max-width: 780px;
+  margin-bottom: 22px;
 }
+
 .story__date {
   font-size: 18px;
   line-height: 24px;
   color: #121212;
+}
+.story__accent {
+  font-style: bold;
+  font-weight: bold;
 }
 @media screen and (max-width: 1439px) {
   .story__photo {

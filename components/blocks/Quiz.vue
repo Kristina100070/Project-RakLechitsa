@@ -1,10 +1,22 @@
 <template>
   <div class="quiz">
-    <h3 class="quiz__title">{{ questions[currentQuestion].title }}</h3>
-    <p class="quiz__text">{{ questions[currentQuestion].text }}</p>
-    <Input className="quiz__input" type="text" placeholder="Напишите тут" />
+    <h3 class="quiz__title">{{ currentQuestion.title }}</h3>
+    <p>
+      <span class="quiz__text_main">{{ currentQuestion.text }}</span>
+      <span
+        v-if="currentQuestion.textAdditional"
+        class="quiz__text_additional"
+        >{{ currentQuestion.textAdditional }}</span
+      >
+    </p>
+    <Input
+      className="quiz__input"
+      type="text"
+      placeholder="Напишите тут"
+      v-model="answer"
+    />
     <div class="quiz__container">
-      <nxt-link @click="prevQuestion" href="#">Назад</nxt-link>
+      <Button @click="prevQuestion" href="#">Назад</Button>
       <Button @btnClick="nextQuestion">{{ btn_text }}</Button>
     </div>
   </div>
@@ -13,7 +25,6 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
-import Link from '@/components/ui/Link';
 export default {
   props: {
     title: {
@@ -30,17 +41,29 @@ export default {
   components: {
     Input,
     Button,
-    'nxt-link': Link,
   },
 
   data() {
     return {
       btn_text: 'Далее',
+      answer: '',
     };
   },
   computed: {
     getCurrentQuestion() {
       return this.$store.getters['quiz/getCurrentQuestion'];
+    },
+  },
+  methods: {
+    async nextQuestion() {
+      await this.$store.dispatch('quiz/NEXT_QUESTION', {
+        answer: this.answer,
+      });
+      this.answer = this.inicialAnswer || '';
+    },
+    async prevQuestion() {
+      await this.$store.dispatch('quiz/PREV_QUESTION');
+      this.answer = this.inicialAnswer || '';
     },
   },
 };
@@ -62,7 +85,7 @@ export default {
   color: #000000;
   margin-bottom: 40px;
 }
-.quiz__text {
+.quiz__text_main {
   font-family: Inter;
   font-style: normal;
   font-weight: 500;
