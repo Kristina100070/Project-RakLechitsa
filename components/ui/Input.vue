@@ -18,15 +18,25 @@ export default {
     name: String,
     required: Boolean,
     className: String,
-    value: String,
+    value: {
+      type: String,
+      default: '',
+    },
   },
   data() {
     return {
       content: this.value,
     };
   },
+  watch: {
+    value(newVal) {
+      if (newVal !== this.content) {
+        this.content = newVal;
+      }
+    },
+  },
   methods: {
-    handleInput(event) {
+    handleInput(content) {
       this.$emit('input', this.content);
     },
   },

@@ -16,8 +16,8 @@
       v-model="answer"
     />
     <div class="quiz__container">
-      <Button @click="prevQuestion" href="#">Назад</Button>
-      <Button @btnClick="nextQuestion">{{ btn_text }}</Button>
+      <nxt-link @lnkClick="prevQuestion" url="#">Назад</nxt-link>
+      <Button @btnClick="nextQuestion">Далее</Button>
     </div>
   </div>
 </template>
@@ -25,6 +25,7 @@
 <script>
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
+import Link from '@/components/ui/Link';
 export default {
   props: {
     title: {
@@ -41,6 +42,7 @@ export default {
   components: {
     Input,
     Button,
+    'nxt-link': Link,
   },
 
   data() {
@@ -50,15 +52,15 @@ export default {
     };
   },
   computed: {
-    curentQuestion() {
+    currentQuestion() {
       const { quiz } = this.$store.state;
-      const { curentQuestion, questions } = quiz;
-      return questions[curentQuestion];
+      const { currentQuestion, questions } = quiz;
+      return questions[currentQuestion] || '';
     },
     inicialAnswer() {
       const { quiz } = this.$store.state;
-      const { curentQuestion, questions } = quiz;
-      return answers[curentQuestion];
+      const { currentQuestion, answers } = quiz;
+      return answers[currentQuestion] || '';
     },
   },
 
@@ -100,7 +102,6 @@ export default {
   font-size: 18px;
   line-height: 24px;
   color: #000000;
-  margin-bottom: 130px;
 }
 
 .quiz__container {
@@ -112,5 +113,6 @@ export default {
   border: none;
   padding: 12px 0;
   border-bottom: 1px solid #e7e7e7;
+  margin-top: 130px;
 }
 </style>

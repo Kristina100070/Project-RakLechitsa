@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <a :href="url" :class="['link', className]"><slot></slot></a>
-  </div>
+  <a :href="url" :class="['link', className]" @click="$emit('lnkClick')">
+    <slot></slot
+  ></a>
 </template>
 
 <script>
