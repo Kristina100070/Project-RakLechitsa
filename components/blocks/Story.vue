@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .story {
   display: flex;
   flex-direction: column;
@@ -82,7 +82,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 1px solid #efefef;
-  align-items: end;
+  align-items: flex-end;
 }
 .story__link {
   font-size: 18px;
