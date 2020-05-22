@@ -130,6 +130,11 @@ export default {
   .search {
     margin-top: 50px;
   }
+  .search-button {
+    height: 48px;
+    font-size: 16px;
+    line-height: 19px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -143,6 +148,12 @@ export default {
     grid-template-columns: repeat(auto-fill, 208px);
     grid-row-gap: 46px;
     grid-column-gap: 30px;
+  }
+  .search-button {
+    width: 208px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 
@@ -161,6 +172,12 @@ export default {
     grid-template-columns: repeat(auto-fill, 216px);
     grid-row-gap: 40px;
     grid-column-gap: 20px;
+  }
+  .search-button {
+    width: 208px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
   }
 }
 
