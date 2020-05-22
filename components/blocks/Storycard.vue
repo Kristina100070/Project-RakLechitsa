@@ -15,6 +15,7 @@ export default {
 <style scoped>
 .stories__story {
   max-width: 300px;
+  cursor: pointer;
 }
 .story__image {
   width: 300px;
@@ -55,7 +56,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 320px) {
   .story__image {
     width: 290px;
     height: 290px;

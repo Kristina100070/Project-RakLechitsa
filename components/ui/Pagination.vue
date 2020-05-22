@@ -78,4 +78,18 @@ export default {
 .pagination__item:hover {
   background-color: #f4f4f4;
 }
+
+@media screen and (max-width: 1280px) {
+  .pagination__item {
+    width: 56px;
+    height: 56px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .pagination__item {
+    width: 50px;
+    height: 50px;
+  }
+}
 </style>
