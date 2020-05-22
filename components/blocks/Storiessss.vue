@@ -13,7 +13,6 @@
 
 <script>
 import Storycard from '@/components/blocks/Storycard';
-
 export default {
   components: {
     'story-card': Storycard,

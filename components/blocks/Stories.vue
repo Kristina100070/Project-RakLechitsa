@@ -1,63 +1,80 @@
 <template>
-  <div class="stories content__stories">
-    <h2 class="stories__title">Истории неизлечимых превычек</h2>
-    <div class="stories__container">
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title">Владимир Тен</h2>
-        <p class="story__subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title">Владимир Тен</h2>
-        <p class="story__subtitle">
-          Я всегда читаю книги с конца, - и это не лечится, в отличие от рака.
-        </p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
-      <div class="stories__story">
-        <div class="story__image"></div>
-        <h2 class="story__title"></h2>
-        <p class="story__subtitle"></p>
-      </div>
+  <container>
+    <div class="stories">
+      <h2 class="stories__title">Истории неизлечимых превычек</h2>
+      <!--    Делаем карточку -->
+      <ul class="stories__container">
+        <li
+          v-for="card in storiesToRender"
+          :key="card.id"
+          class="stories__item"
+        >
+          <story-card
+            :src="card.image"
+            :author="card.title"
+            :text="card.subtitle"
+            @cardClick="goToDetail(card.id)"
+            :itemsPerPage="itemsPerPage"
+            @onPageChanged="changeStartIndex"
+          />
+        </li>
+      </ul>
+      <!-- делаем пагинацию - разбивку по страничкам -->
+      <!--    <pagination-->
+      <!--      :totalItems="this.$store.state.stories.cards.length"-->
+      <!--      :itemsPerPage="itemsPerPage"-->
+      <!--      @onPageChanged="changeStartIndex"-->
+      <!--    />-->
+      <nuxt-link to="/stories" class="stories__link">Больше статей</nuxt-link>
     </div>
-    <a href="" class="stories__link"
-      ><p class="stories__link-text">Больше статей</p></a
-    >
-  </div>
+  </container>
 </template>
 
 <script>
-export default {};
+import Storycard from '@/components/blocks/Storycard';
+import Container from '~/components/blocks/Container';
+export default {
+  components: {
+    'story-card': Storycard,
+    container: Container,
+  },
+  methods: {
+    goToDetail(id) {
+      this.$router.push(`/stories/${id}`);
+    },
+    changeStartIndex(index) {
+      this.startIndex = (index - 1) * this.itemsPerPage;
+    },
+  },
+
+  data() {
+    return {
+      itemsPerPage: 8,
+      startIndex: 0,
+    };
+  },
+
+  computed: {
+    storiesToRender() {
+      const { stories } = this.$store.state;
+      return stories.cards.filter(
+        (item, idx) =>
+          idx >= this.startIndex &&
+          idx <= this.startIndex + this.itemsPerPage - 1
+      );
+    },
+    cards() {
+      return this.$store.getters['stories/getCards'];
+    },
+  },
+};
 </script>
 
 <style scoped>
+.stories {
+  padding: 100px 0;
+}
+
 .stories__title {
   font-weight: 600;
   font-size: 2em;
@@ -66,36 +83,14 @@ export default {};
 }
 
 .stories__container {
-  margin: 70px 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 300px);
   grid-column-gap: 40px;
   grid-row-gap: 70px;
-}
-
-.stories__story {
-  max-width: 300px;
-}
-
-.story__image {
-  width: 300px;
-  height: 300px;
-  background-image: url('../../static/images/pr4545.jpg');
-}
-
-.story__title {
-  margin-top: 17px;
-  font-weight: 600;
-  font-size: 1.375em;
-  line-height: 1;
-}
-
-.story__subtitle {
-  margin-top: 14px;
-  font-weight: normal;
-  font-size: 0.875em;
-  line-height: 1.286;
-  color: #666;
+  margin: 70px 0;
+  max-width: 1320px;
+  padding: 0;
+  list-style: none;
 }
 
 .stories__link {
@@ -103,14 +98,11 @@ export default {};
   text-decoration: none;
   color: #000;
   display: flex;
-}
-
-.stories__link-text {
+  justify-content: center;
+  text-align: center;
   font-weight: normal;
   font-size: 1em;
   line-height: 1.25em;
-  text-align: center;
-  margin: auto;
   padding: 31px 0;
 }
 
@@ -119,7 +111,11 @@ export default {};
   transition: 0.1s linear;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1439px) {
+@media screen and (max-width: 1280px) {
+  .stories {
+    padding: 90px 0;
+  }
+
   .stories__title {
     font-size: 1.75em;
     line-height: 1.14;
@@ -129,21 +125,16 @@ export default {};
     grid-row-gap: 60px;
   }
 
-  .stories__story {
-    max-width: 265px;
-  }
-
-  .story__image {
-    width: 265px;
-    height: 265px;
-  }
-
-  .stories__link-text {
+  .stories__link {
     padding: 29px 0;
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
+@media screen and (max-width: 1024px) {
+  .stories {
+    padding: 80px 0;
+  }
+
   .stories__title {
     font-size: 1.5em;
     line-height: 1.167;
@@ -155,27 +146,52 @@ export default {};
     grid-row-gap: 46px;
   }
 
-  .stories__story {
-    max-width: 208px;
+  .stories__link {
+    font-size: 0.8em;
+    padding: 17px 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .stories {
+    padding: 80px 0;
   }
 
-  .story__image {
-    width: 208px;
-    height: 208px;
+  .stories__title {
+    font-size: 1.5em;
+    line-height: 1.167;
+    max-width: 380px;
+    text-align: center;
+    margin: 0 auto;
   }
 
-  .story__title {
-    margin-top: 16px;
+  .stories__container {
+    grid-column-gap: 30px;
+    grid-row-gap: 46px;
+  }
+
+  .stories__link {
+    font-size: 0.8em;
+    padding: 17px 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .stories {
+    padding: 50px 0;
+  }
+
+  .stories__title {
     font-size: 1.125em;
+    line-height: 1.313;
   }
 
-  .story__subtitle {
-    margin-top: 16px;
-    font-size: 0.813em;
-    line-height: 1.231;
+  .stories__container {
+    grid-column-gap: 30px;
+    grid-row-gap: 46px;
   }
 
-  .stories__link-text {
+  .stories__link {
     font-size: 0.8em;
     padding: 17px 0;
   }
