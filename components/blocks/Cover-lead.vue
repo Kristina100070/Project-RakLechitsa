@@ -3,12 +3,12 @@
     <h3 class="lead__title">#РакЛечится</h3>
     <p class="lead__subtitle">О проекте</p>
     <div class="lead__container">
-      <p class="lead__paragraph lead__paragraph_about-project">
+      <p class="lead__container-title">
         Этот проект был создан благотворительным фондом Константина Хабенского.
       </p>
       <div class="lead__author-project">
-        <p class="lead__paragraph lead__paragraph_name-project">Рак Лечится</p>
-        <p class="lead__paragraph">Фонд Хабенского</p>
+        <p class="lead__author-title">Рак Лечится</p>
+        <p class="lead__author-subtitle">Фонд Хабенского</p>
       </div>
       <div class="lead__text">
         <p class="lead__paragraph">
@@ -45,9 +45,16 @@ export default {};
 .lead__title {
   margin: 90px auto 0;
   font-weight: 800;
-  font-size: 64px;
-  line-height: 77px;
+  font-size: 4em;
+  line-height: 1.2;
   text-transform: uppercase;
+}
+
+.lead__subtitle {
+  font-weight: 600;
+  font-size: 2em;
+  line-height: 1.125;
+  margin: 70px 60px 0;
 }
 
 .lead__container {
@@ -55,27 +62,29 @@ export default {};
   margin: 32px 60px 100px;
 }
 
-.lead__paragraph {
-  font-size: 18px;
-  line-height: 22px;
-  color: #dedede;
+.lead__container-title {
+  font-weight: normal;
+  font-size: 1.125em;
+  line-height: 1.2;
+  max-width: 340px;
 }
 
-.lead__paragraph_about-project {
-  max-width: 268px;
-}
-
-.lead__paragraph_name-project {
+.lead__author-title {
   font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 1.125em;
+  line-height: 1.2;
 }
 
-.lead__subtitle {
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 36px;
-  margin: 70px 60px 0;
+.lead__author-subtitle {
+  font-size: 1.125em;
+  line-height: 1.2;
+  margin-top: 10px;
+}
+
+.lead__paragraph {
+  font-size: 1.125em;
+  line-height: 1.2;
+  color: #dedede;
 }
 
 .lead__text {
@@ -86,12 +95,123 @@ export default {};
 }
 
 .lead__paragraph:last-child {
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .lead__author-project {
-  min-width: 160px;
   text-align: right;
-  margin-left: 210px;
+  margin-left: 90px;
+  min-width: 154px;
+}
+
+@media screen and (max-width: 1280px) {
+  .lead__title {
+    font-size: 3.625em;
+    line-height: 1.2;
+  }
+
+  .lead__subtitle {
+    font-size: 1.75em;
+    line-height: 1.143;
+  }
+
+  .lead__container-title {
+    font-size: 1em;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .lead__title {
+    font-size: 3.25em;
+    line-height: 1.2;
+  }
+
+  .lead__subtitle {
+    font-size: 1.5em;
+    line-height: 1.167;
+  }
+
+  .lead__container-title {
+    font-size: 0.8em;
+    line-height: 1.231;
+  }
+
+  .lead__author-title {
+    font-size: 0.882em;
+    line-height: 1.267;
+  }
+
+  .lead__author-subtitle {
+    font-size: 0.882em;
+    line-height: 1.267;
+  }
+
+  .lead__paragraph {
+    font-size: 0.882em;
+    line-height: 1.267;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .lead__title {
+    display: none;
+  }
+
+  .lead__subtitle {
+    font-size: 1.5em;
+    line-height: 1.167;
+  }
+
+  .lead__container-title {
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  .lead__author-title {
+    font-size: 0.8em;
+    line-height: 1.462;
+  }
+
+  .lead__author-subtitle {
+    font-size: 0.8em;
+    line-height: 1.462;
+  }
+
+  .lead__paragraph {
+    font-size: 0.8em;
+    line-height: 1.462;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .lead__title {
+    display: none;
+  }
+
+  .lead__subtitle {
+    font-size: 1.125em;
+    line-height: 1.167;
+  }
+
+  .lead__container-title {
+    font-size: 0.8em;
+    line-height: 1.231;
+  }
+
+  .lead__author-title {
+    font-size: 0.8em;
+    line-height: 1.231;
+  }
+
+  .lead__author-subtitle {
+    font-size: 0.8em;
+    line-height: 1.231;
+  }
+
+  .lead__paragraph {
+    font-size: 0.938em;
+    line-height: 1.267;
+  }
 }
 </style>

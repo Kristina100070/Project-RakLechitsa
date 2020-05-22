@@ -15,6 +15,7 @@ export default {};
 
 <style scoped>
 .rectangle {
+  margin: 0 auto;
   max-width: calc(100% - 120px);
   background-color: #613a93;
   border: 1px solid #000;
@@ -26,7 +27,7 @@ export default {};
   font-size: 1.875em;
   line-height: 1.2;
   text-align: center;
-  color: #ffffff;
+  color: #fff;
   text-transform: uppercase;
   padding: 17px 0;
   margin: 0 auto;
@@ -37,7 +38,7 @@ export default {};
   font-size: 1.4em;
 }
 
-@media screen and (min-width: 1280px) and (max-width: 1439px) {
+@media screen and (max-width: 1280px) {
   .rectangle {
     max-width: calc(100% - 100px);
   }
@@ -51,7 +52,7 @@ export default {};
   }
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1279px) {
+@media screen and (max-width: 1024px) {
   .rectangle {
     max-width: calc(100% - 100px);
   }
@@ -64,6 +65,57 @@ export default {};
 
   .rectangle__title-span {
     font-size: 1.35em;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .rectangle {
+    max-width: calc(100% - 80px);
+  }
+
+  .rectangle__title {
+    max-width: 444px;
+    font-size: 1.375em;
+    line-height: 1.2;
+    padding: 12px 0;
+  }
+
+  .rectangle__title-span {
+    font-size: 1.48em;
+  }
+
+  .rectangle__title_more-broadly {
+    max-width: 628px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .rectangle__title {
+    max-width: 220px;
+    font-size: 1em;
+    line-height: 1.12;
+    padding: 15px 0;
+  }
+
+  .rectangle__title-span {
+    font-size: 1.4em;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .rectangle {
+    max-width: calc(100% - 30px);
+  }
+
+  .rectangle__title {
+    max-width: 220px;
+    font-size: 1em;
+    line-height: 1.12;
+    padding: 15px 0;
+  }
+
+  .rectangle__title-span {
+    font-size: 1.4em;
   }
 }
 </style>
