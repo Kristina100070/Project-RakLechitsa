@@ -48,6 +48,7 @@ export default {
   .link {
     font-size: 13px;
     line-height: 16px;
+    margin-right: 15px;
   }
 }
 </style>

@@ -17,7 +17,9 @@
     />
     <div class="quiz__container">
       <nxt-link @lnkClick="prevQuestion" url="#">Назад</nxt-link>
-      <Button @btnClick="nextQuestion">Далее</Button>
+      <Button @btnClick="nextQuestion">{{
+        isLastQuestion ? 'Далее' : 'Отправить'
+      }}</Button>
     </div>
   </div>
 </template>
@@ -62,6 +64,15 @@ export default {
       const { currentQuestion, answers } = quiz;
       return answers[currentQuestion] || '';
     },
+    isLastQuestion() {
+      const { quiz } = this.$store.state;
+      const { questions, currentQuestion } = quiz;
+      const questionsLength = Object.keys(questions).length;
+      if (questionsLength === currentQuestion) {
+        return false;
+      }
+      return true;
+    },
   },
 
   methods: {
@@ -103,16 +114,88 @@ export default {
   line-height: 24px;
   color: #000000;
 }
-
+.quiz__text_additional {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #000000;
+}
 .quiz__container {
   display: flex;
   margin-top: 200px;
   align-items: center;
 }
 .quiz__input {
+  width: 840px;
   border: none;
   padding: 12px 0;
   border-bottom: 1px solid #e7e7e7;
   margin-top: 130px;
+}
+@media screen and (max-width: 1439px) {
+  .quiz__input {
+    width: 720px;
+  }
+  .quiz__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .quiz__text_main {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .quiz__text_additional {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .quiz__text_main {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .quiz__text_additional {
+    font-size: 15px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .quiz__input {
+    width: 500px;
+  }
+  .quiz__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .quiz__text_main {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .quiz__text_additional {
+    font-size: 16px;
+    line-height: 19px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .quiz__input {
+    width: 260px;
+  }
+  .quiz__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 30px;
+  }
+  .quiz__text_main {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .quiz__text_additional {
+    font-size: 13px;
+    line-height: 16px;
+  }
 }
 </style>
