@@ -155,14 +155,18 @@ export default {};
 
 <style scoped>
 .policy {
-  padding: 130px 330px 230px;
+  max-width: 1440px;
+  padding: 100px 330px 230px;
 }
 .policy__title {
   font-size: 38px;
   line-height: 48px;
   text-align: center;
   color: #000000;
-  margin-bottom: 130px;
+  margin-bottom: 100px;
+  padding: 30px 0;
+  border-top: 1px solid #efefef;
+  border-bottom: 1px solid #efefef;
 }
 .policy__subtitle {
   font-size: 22px;
@@ -176,14 +180,14 @@ export default {};
   color: #000000;
   margin-bottom: 30px;
 }
-.policy__text:last-of-type {
-  margin-bottom: 90px;
-}
 @media screen and (max-width: 1439px) {
+  .policy {
+    padding: 90px 290px 200px;
+  }
   .policy__title {
     font-size: 34px;
     line-height: 44px;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
   }
   .policy__subtitle {
     font-size: 20px;
@@ -195,10 +199,13 @@ export default {};
   }
 }
 @media screen and (max-width: 1279px) {
+  .policy {
+    padding: 80px 190px 160px;
+  }
   .policy__title {
     font-size: 30px;
     line-height: 38px;
-    margin-bottom: 110px;
+    margin-bottom: 80px;
   }
   .policy__subtitle {
     font-size: 18px;
@@ -210,10 +217,13 @@ export default {};
   }
 }
 @media screen and (max-width: 1023px) {
+  .policy {
+    padding: 80px 64px 160px;
+  }
   .policy__title {
     font-size: 30px;
     line-height: 38px;
-    margin-bottom: 110px;
+    margin-bottom: 80px;
   }
   .policy__subtitle {
     font-size: 18px;
@@ -225,10 +235,14 @@ export default {};
   }
 }
 @media screen and (max-width: 779px) {
+  .policy {
+    padding: 50px 15px 100px;
+  }
   .policy__title {
     font-size: 18px;
     line-height: 21px;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
+    padding: 20px 0;
   }
   .policy__subtitle {
     font-size: 13px;
