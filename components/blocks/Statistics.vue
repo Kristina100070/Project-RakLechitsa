@@ -2,51 +2,19 @@
   <container>
     <section class="statistics">
       <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
-      <div class="statistics__container">
-        <div class="statistics__card">
-          <h2 class="card__title">
-            Каждый 3-й в стране уверен, что рак неизлечим. А это примерно 48 918
-            000 человек.
-          </h2>
-          <img class="card__image" />
-          <p class="card__info"></p>
-          <p class="card__source"></p>
-        </div>
-        <div class="statistics__card">
-          <h2 class="card__title">2,6% Россиян имеют онкозаболевания.</h2>
-          <img class="card__image" />
-          <p class="card__info"></p>
-          <p class="card__source"></p>
-        </div>
-        <div class="statistics__card">
-          <h2 class="card__title">
-            На 28% выросла доля выявления заболеваний на ранней стадии за 10
-            лет.
-          </h2>
-          <img class="card__image" />
-          <p class="card__info"></p>
-          <p class="card__source"></p>
-        </div>
-        <div class="statistics__card">
-          <h2 class="card__title">
-            На 25% снизилась смертность в течение первого года после постановки
-            диагноза.
-          </h2>
-          <img class="card__image" />
-          <p class="card__info"></p>
-          <p class="card__source"></p>
-        </div>
-      </div>
+
+      <card />
     </section>
   </container>
 </template>
 
 <script>
 import Container from '~/components/blocks/Container';
-
+import StaticCard from '~/components/blocks/StaticCard';
 export default {
   components: {
     container: Container,
+    card: StaticCard,
   },
 };
 </script>
@@ -59,29 +27,11 @@ export default {
 }
 
 .statistics__title {
+  margin-bottom: 70px;
   font-weight: 600;
-  font-size: 2em;
-  line-height: 1.125em;
+  font-size: 32px;
+  line-height: 36px;
   max-width: 380px;
-}
-
-.statistics__container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-column-gap: 40px;
-}
-
-.statistics__card {
-  border: 1px solid #efefef;
-  min-height: 300px;
-}
-
-.card__title {
-  font-weight: normal;
-  font-size: 0.75em;
-  line-height: 1.333;
-  max-width: 260px;
-  padding: 10px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -90,24 +40,20 @@ export default {
   }
 
   .statistics__title {
-    font-size: 1.75em;
-    line-height: 1.143;
+    font-size: 28px;
+    line-height: 32px;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .statistics {
     padding: 80px 0;
+    overflow: auto;
   }
 
   .statistics__title {
-    font-size: 1.5em;
-    line-height: 1.167;
-  }
-
-  .card__title {
-    font-size: 0.625em;
-    line-height: 1.4;
+    font-size: 24px;
+    line-height: 28px;
   }
 }
 
@@ -115,15 +61,9 @@ export default {
   .statistics {
     padding: 80px 0;
   }
-
   .statistics__title {
     font-size: 1.5em;
     line-height: 1.167;
-  }
-
-  .card__title {
-    font-size: 0.625em;
-    line-height: 1.4;
   }
 }
 
@@ -135,11 +75,6 @@ export default {
   .statistics__title {
     font-size: 1.125em;
     line-height: 1.167;
-  }
-
-  .card__title {
-    font-size: 0.625em;
-    line-height: 1.4;
   }
 }
 </style>

@@ -1,22 +1,29 @@
 <template>
-  <div class="rectangle">
-    <slot
-      ><h2 class="rectangle__title">
-        И в отличие от рака,
-        <span class="rectangle__title-span">#Этонелечится</span>
-      </h2></slot
-    >
-  </div>
+  <container>
+    <div class="rectangle">
+      <slot>
+        <h2 class="rectangle__title">
+          И в отличие от рака,
+          <span class="rectangle__title-span">#Этонелечится</span>
+        </h2></slot
+      >
+    </div>
+  </container>
 </template>
 
 <script>
-export default {};
+import Container from '@/components/blocks/Container';
+
+export default {
+  components: {
+    container: Container,
+  },
+};
 </script>
 
 <style scoped>
 .rectangle {
   margin: 0 auto;
-  max-width: calc(100% - 120px);
   background-color: #613a93;
   border: 1px solid #000;
 }
@@ -39,10 +46,6 @@ export default {};
 }
 
 @media screen and (max-width: 1280px) {
-  .rectangle {
-    max-width: calc(100% - 100px);
-  }
-
   .rectangle__title {
     font-size: 1.75em;
   }
@@ -53,26 +56,17 @@ export default {};
 }
 
 @media screen and (max-width: 1024px) {
-  .rectangle {
-    max-width: calc(100% - 100px);
-  }
-
   .rectangle__title {
     font-size: 1.5em;
     line-height: 1.7;
     padding: 11px 0;
   }
-
   .rectangle__title-span {
     font-size: 1.35em;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .rectangle {
-    max-width: calc(100% - 80px);
-  }
-
   .rectangle__title {
     max-width: 444px;
     font-size: 1.375em;
@@ -103,10 +97,6 @@ export default {};
 }
 
 @media screen and (max-width: 320px) {
-  .rectangle {
-    max-width: calc(100% - 30px);
-  }
-
   .rectangle__title {
     max-width: 220px;
     font-size: 1em;

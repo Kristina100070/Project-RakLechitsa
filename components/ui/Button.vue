@@ -65,9 +65,6 @@ export default {
     font-size: 16px;
   }
 }
-
-@media screen and (max-width: 1034px) {
-}
 @media screen and (max-width: 767px) {
   .button {
     width: 206px;

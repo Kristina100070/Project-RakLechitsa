@@ -33,7 +33,6 @@ import Button from '@/components/ui/Button';
 import Searchinput from '@/components/ui/Searchinput';
 import Pagination from '@/components/ui/Pagination';
 import Storycard from '@/components/blocks/Storycard';
-import Storiessss from '@/components/blocks/Storiessss';
 
 export default {
   components: {
@@ -41,7 +40,6 @@ export default {
     searchinput: Searchinput,
     pagination: Pagination,
     'story-card': Storycard,
-    storiess: Storiessss,
   },
   methods: {
     goToDetail(id) {
