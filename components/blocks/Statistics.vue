@@ -34,14 +34,6 @@ export default {
   max-width: 380px;
 }
 
-.card__title {
-  font-weight: normal;
-  font-size: 0.75em;
-  line-height: 1.333;
-  max-width: 260px;
-  padding: 10px;
-}
-
 @media screen and (max-width: 1280px) {
   .statistics {
     padding: 90px 0;
@@ -56,6 +48,7 @@ export default {
 @media screen and (max-width: 1024px) {
   .statistics {
     padding: 80px 0;
+    overflow: auto;
   }
 
   .statistics__title {
@@ -68,15 +61,9 @@ export default {
   .statistics {
     padding: 80px 0;
   }
-
   .statistics__title {
     font-size: 1.5em;
     line-height: 1.167;
-  }
-
-  .card__title {
-    font-size: 0.625em;
-    line-height: 1.4;
   }
 }
 
@@ -88,11 +75,6 @@ export default {
   .statistics__title {
     font-size: 1.125em;
     line-height: 1.167;
-  }
-
-  .card__title {
-    font-size: 0.625em;
-    line-height: 1.4;
   }
 }
 </style>

@@ -1,21 +1,13 @@
 <template>
   <div>
     <cover />
-
     <description />
-
     <rectangle />
-
     <stories />
-
     <rectangle />
-
     <socialNetwork />
-
     <yourStory />
-
     <statistics />
-
     <cover-lead />
   </div>
 </template>

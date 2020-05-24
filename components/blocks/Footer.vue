@@ -1,6 +1,6 @@
 <template>
-  <container>
-    <footer class="footer">
+  <footer class="footer">
+    <container>
       <div class="footer__info">
         <p class="footer__thanksgiving">
           Спасибо всем, кто помог состояться этому проекту
@@ -15,8 +15,8 @@
         <p class="footer_margin-bottom">Рак Лечится 2020</p>
         <p class="footer_margin-bottom">Сделано студентами Яндекс Практикум</p>
       </div>
-    </footer>
-  </container>
+    </container>
+  </footer>
 </template>
 
 <script>
@@ -44,6 +44,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background: #fbfbfb;
 }
 .footer__info {
   width: 100%;

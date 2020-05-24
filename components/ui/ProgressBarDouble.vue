@@ -34,6 +34,7 @@ export default {
 .progress-bar-double {
   max-width: 260px;
   height: 40px;
+  position: relative;
 }
 .progress-bar-double__old,
 .progress-bar-double__new {

@@ -73,4 +73,37 @@ export default {
   line-height: 16px;
   color: #666666;
 }
+@media screen and (max-width: 1280px) {
+  .statistics__card {
+    min-width: 265px;
+    min-height: 265px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .statistics__card {
+    min-width: 208px;
+    min-height: 208px;
+  }
+  .card__title {
+    font-size: 10px;
+    line-height: 14px;
+  }
+  .card__info {
+    font-weight: 600;
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .card__source {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .statistics__card {
+    min-width: 216px;
+    min-height: 216px;
+  }
+}
+@media screen and (max-width: 320px) {
+}
 </style>
