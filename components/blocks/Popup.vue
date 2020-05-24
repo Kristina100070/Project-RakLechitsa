@@ -20,7 +20,7 @@ export default {};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 920px;
+  max-width: 920px;
   border: none;
   box-sizing: border-box;
   padding: 40px;
@@ -38,5 +38,10 @@ export default {};
   background-repeat: no-repeat;
   background: center;
   cursor: pointer;
+}
+@media screen and (max-width: 767px) {
+  .popup {
+    padding: 15px;
+  }
 }
 </style>

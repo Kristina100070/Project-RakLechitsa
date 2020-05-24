@@ -48,13 +48,27 @@ export default {
 .button_disabled {
   background: grey;
 }
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1439px) {
+  .button {
+    width: 200px;
+    height: 48px;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .button {
+    width: 200px;
+    height: 46px;
+    font-size: 15px;
+    line-height: 18px;
+  }
   .button_menu {
     font-size: 16px;
   }
 }
-@media screen and (max-width: 320px) {
-  .button_menu {
+@media screen and (max-width: 767px) {
+  .button {
+    width: 206px;
+    height: 40px;
     font-size: 13px;
     line-height: 16px;
   }
