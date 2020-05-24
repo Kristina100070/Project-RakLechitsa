@@ -4,6 +4,7 @@
     <Popup v-if="popupShown" @closeClick="closePopup">
       <quiz></quiz>
     </Popup>
+    <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
     <main-header />
     <nuxt />
     <main-footer />
@@ -16,6 +17,8 @@ import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/blocks/Popup';
 import Quiz from '@/components/blocks/Quiz';
 import Overlay from '@/components/ui/Overlay';
+import Menu from '@/components/ui/Menu';
+
 export default {
   components: {
     'main-header': Header,
@@ -23,6 +26,7 @@ export default {
     quiz: Quiz,
     overlay: Overlay,
     'main-footer': Footer,
+    'mobile-menu': Menu,
   },
   methods: {
     closePopup() {
@@ -33,15 +37,18 @@ export default {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
     },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
   },
 };
 </script>
 
 <style>
 .root {
-  max-width: 1440px;
-  margin: auto;
+  margin: 0, auto;
   font-family: 'Inter', sans-serif;
+  font-style: normal;
 }
 
 html {
@@ -58,5 +65,13 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>

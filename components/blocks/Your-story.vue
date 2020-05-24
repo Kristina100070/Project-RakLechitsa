@@ -1,33 +1,51 @@
 <template>
-  <section class="your-story">
-    <div class="your-story__main-info">
-      <h2 class="your-story__title">Расскажите свою историю</h2>
-      <p class="your-story__subtitle">
-        Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
-        поделиться своей историей неизлечимых привычек, навязчивых идей и
-        болезненных привязанностей.
-      </p>
-    </div>
-    <div class="your-story__form">
-      <div class="form__variants">
-        <p class="form__variant">1-й вариант</p>
-        <p class="form__variant">2-й вариант</p>
+  <container>
+    <section class="your-story">
+      <div class="your-story__main-info">
+        <h2 class="your-story__title">Расскажите свою историю</h2>
+        <p class="your-story__subtitle">
+          Мы публикуем новые истории на сайте раз в неделю. Есть 2 варианта
+          поделиться своей историей неизлечимых привычек, навязчивых идей и
+          болезненных привязанностей.
+        </p>
       </div>
-      <p class="form__info">
-        Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
-        после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
-        испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
-      </p>
-      <Button @click="showPopup" className="button_section">{{ text }}</Button>
-    </div>
-  </section>
+      <div class="your-story__form">
+        <div class="form__variants">
+          <p class="form__variant">1-й вариант</p>
+          <p class="form__variant">2-й вариант</p>
+        </div>
+        <p class="form__info">
+          Заполнить подробную форму прямо на сайте и мы опубликуем вашу историю
+          после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
+          испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
+        </p>
+        <Button @click="showPopup" className="button_section">{{
+          text
+        }}</Button>
+      </div>
+    </section>
+  </container>
 </template>
 
 <script>
+//
+//     <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
+//   <Popup v-if="popupShown" @closeClick="closePopup">
+//     <quiz2></quiz2>
+//   </Popup>
 import Button from '@/components/ui/Button';
+import Container from '@/components/blocks/Container';
+import Popup from '@/components/blocks/Popup';
+import Quiz2 from '@/components/blocks/Quiz2';
+import Overlay from '@/components/ui/Overlay';
+
 export default {
   components: {
     Button,
+    container: Container,
+    Popup,
+    quiz2: Quiz2,
+    overlay: Overlay,
   },
   data() {
     return {
@@ -37,6 +55,11 @@ export default {
   methods: {
     showPopup() {
       this.$store.commit('popup/togglePopup');
+    },
+  },
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
     },
   },
 };

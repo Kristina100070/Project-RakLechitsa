@@ -53,4 +53,10 @@ export default {
     font-size: 16px;
   }
 }
+@media screen and (max-width: 320px) {
+  .button_menu {
+    font-size: 13px;
+    line-height: 16px;
+  }
+}
 </style>
