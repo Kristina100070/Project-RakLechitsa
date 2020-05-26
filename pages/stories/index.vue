@@ -1,8 +1,10 @@
 <template>
   <main class="stories">
+    <!-- это заголовок страницы -->
     <h2 class="stories-title">
       Истории неизлечимых привычек
     </h2>
+    <!-- делаем поиск по страничке -->
     <form class="search">
       <searchinput class="search-input" />
       <searchbutton class="search-button">Поиск</searchbutton>
@@ -10,18 +12,18 @@
 
     <!-- делаем функцию карточек -->
     <ul class="stories__container">
-      <li v-for="card in storiesToRender" :key="card.id" class="stories__item">
+      <li v-for="story in stories" :key="story.id" class="stories__item">
         <story-card
-          :src="card.image"
-          :author="card.title"
-          :text="card.subtitle"
-          @cardClick="goToDetail(card.id)"
+          :src="baseUrl / stories / ImageUrl.formats.small.url"
+          :author="story.author"
+          :text="story.title"
+          @cardClick="goToDetail(story.id)"
         />
       </li>
     </ul>
     <!-- делаем пагинацию - разбивку по страничкам -->
     <pagination
-      :totalItems="this.$store.state.stories.cards.length"
+      :totalItems="this.$store.state.stories.stories.length"
       :itemsPerPage="itemsPerPage"
       @onPageChanged="changeStartIndex"
     />
@@ -58,26 +60,28 @@ export default {
   },
 
   computed: {
-    storiesToRender() {
-      const { stories } = this.$store.state;
-      return stories.cards.filter(
-        (item, idx) =>
-          idx >= this.startIndex &&
-          idx <= this.startIndex + this.itemsPerPage - 1
-      );
+    stories() {
+      return this.$store.getters['stories/getStories'];
     },
-    cards() {
-      return this.$store.getters['stories/getCards'];
-    },
-    itemsToLoop() {
-      if (process.browser) {
+  },
+  beforeMount() {
+    this.$store.dispatch('stories/fetchStories');
+  },
+  // async fetch({ store, params }) {
+  //  await  this.$store.dispatch('stories/fetchStories');
+  //  },
+  mounted() {
+    if (process.browser) {
+      if (window.innerWidth <= 320) {
+        return this.stories.filter((item, idx) => idx < 9);
+      } else {
         if (window.innerWidth <= 768) {
-          return this.cards.filter((item, index) => index < 12);
+          return this.stories.filter((item, idx) => idx < 12);
         } else {
-          return this.cards.filter((item, index) => index < 16);
+          return this.stories.filter((item, idx) => idx < 16);
         }
       }
-    },
+    }
   },
 };
 </script>
