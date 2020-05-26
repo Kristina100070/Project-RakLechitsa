@@ -44,5 +44,11 @@ export default {};
   .popup {
     padding: 15px;
   }
+  .popup__close {
+    top: 15px;
+    right: 15px;
+    width: 17.36px;
+    height: 17.36px;
+  }
 }
 </style>

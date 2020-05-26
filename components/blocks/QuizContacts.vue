@@ -140,4 +140,12 @@ export default {
 .quiz__policy-container {
   margin-left: 30px;
 }
+@media screen and (max-width: 1439px) {
+}
+@media screen and (max-width: 1279px) {
+}
+@media screen and (max-width: 1023px) {
+}
+@media screen and (max-width: 767px) {
+}
 </style>

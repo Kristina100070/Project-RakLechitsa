@@ -72,6 +72,36 @@ export default {
   align-items: center;
 }
 .quiz__social-icon {
-  margin-right: 45px;
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 1439px) {
+  .quiz {
+    width: 720px;
+  }
+  .quiz__social-icon {
+    margin-right: 20px;
+  }
+}
+@media screen and (max-width: 1279px) {
+}
+@media screen and (max-width: 1023px) {
+  .quiz {
+    width: 500px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .quiz {
+    width: 260px;
+    height: 161px;
+  }
+  .quiz__title {
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 60px;
+  }
+  .quiz__social-icon {
+    margin-right: 15px;
+  }
 }
 </style>
