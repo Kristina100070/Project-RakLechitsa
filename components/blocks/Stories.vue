@@ -4,18 +4,12 @@
       <h2 class="stories__title">Истории неизлечимых превычек</h2>
       <!--    Делаем карточку -->
       <ul class="stories__container">
-        <li
-          v-for="card in storiesToRender"
-          :key="card.id"
-          class="stories__item"
-        >
+        <li v-for="story in stories" :key="story.id" class="stories__item">
           <story-card
-            :src="card.image"
-            :author="card.title"
-            :text="card.subtitle"
-            @cardClick="goToDetail(card.id)"
-            :itemsPerPage="itemsPerPage"
-            @onPageChanged="changeStartIndex"
+            :src="story.ImageUrl"
+            :author="story.author"
+            :text="story.title"
+            @cardClick="goToDetail(story.id)"
           />
         </li>
       </ul>
@@ -57,14 +51,14 @@ export default {
   computed: {
     storiesToRender() {
       const { stories } = this.$store.state;
-      return stories.cards.filter(
+      return stories.stories.filter(
         (item, idx) =>
           idx >= this.startIndex &&
           idx <= this.startIndex + this.itemsPerPage - 1
       );
     },
     cards() {
-      return this.$store.getters['stories/getCards'];
+      return this.$store.getters['stories/getStories'];
     },
   },
 };

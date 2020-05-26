@@ -1,6 +1,5 @@
 <template>
   <div class="pagination">
-    <!-- в ключе нужно использовать айди истории, использовать индекс плохая практика-->
     <div
       v-for="index in pagesCount"
       :key="index"
