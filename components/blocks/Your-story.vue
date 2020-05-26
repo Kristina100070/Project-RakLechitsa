@@ -19,24 +19,24 @@
           после проверки. Пожалуйста, заполняйте все пункты корректно, если вы
           испытаете какие-то сложности, воспользуйтесь 2-м вариантом.
         </p>
-        <Button @click="showPopup" className="button_section">{{
+        <Button @btnClick="showPopupForm" className="button_section">{{
           text
         }}</Button>
+
+        <overlay v-if="popupFormShown" @clickOverlay="closePopupForm"></overlay>
+        <Popup v-if="popupFormShown" @closeClick="closePopupForm">
+          <QuizContacts />
+        </Popup>
       </div>
     </section>
   </container>
 </template>
 
 <script>
-//
-//     <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
-//   <Popup v-if="popupShown" @closeClick="closePopup">
-//     <quiz2></quiz2>
-//   </Popup>
 import Button from '@/components/ui/Button';
 import Container from '@/components/blocks/Container';
 import Popup from '@/components/blocks/Popup';
-import Quiz2 from '@/components/blocks/Quiz2';
+import QuizContacts from '@/components/blocks/QuizContacts';
 import Overlay from '@/components/ui/Overlay';
 
 export default {
@@ -44,8 +44,9 @@ export default {
     Button,
     container: Container,
     Popup,
-    quiz2: Quiz2,
+
     overlay: Overlay,
+    QuizContacts,
   },
   data() {
     return {
@@ -53,13 +54,19 @@ export default {
     };
   },
   methods: {
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopupForm() {
+      this.$store.commit('popup/togglePopupForm');
+    },
+    closePopupForm() {
+      this.$store.commit('popup/togglePopupForm');
     },
   },
   computed: {
-    popupShown() {
-      return this.$store.getters['popup/getPopupShown'];
+    popupFormShown() {
+      return this.$store.getters['popup/getPopupFormShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
 };
