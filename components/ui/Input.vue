@@ -1,6 +1,6 @@
 <template>
   <input
-    :class="[input, className]"
+    :class="['input', className]"
     :type="type"
     :placeholder="placeholder"
     :name="name"

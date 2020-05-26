@@ -8,13 +8,18 @@
         <main-menu class="footer__menu" />
         <div class="footer__link">
           <p class="footer_margin-bottom">Мы в Инстаграме и Youtube</p>
-          <a class="footer_margin-bottom">Поделитесь &#8599;</a>
+          <a @click="showPopupLinks" class="footer_margin-bottom"
+            >Поделитесь &#8599;</a
+          >
         </div>
       </div>
       <div class="footer__copyright">
         <p class="footer_margin-bottom">Рак Лечится 2020</p>
         <p class="footer_margin-bottom">Сделано студентами Яндекс Практикум</p>
       </div>
+      <Popup v-if="popupLinksShown" @closeClick="closePopupLinks">
+        <QuizLinks />
+      </Popup>
     </container>
   </footer>
 </template>
@@ -22,16 +27,33 @@
 <script>
 import Container from '@/components/blocks/Container.vue';
 import Menu from '@/components/ui/Menu';
+import QuizLinks from '@/components/blocks/QuizLinks';
+import Popup from '@/components/blocks/Popup';
 
 export default {
   components: {
     'main-menu': Menu,
     container: Container,
+    QuizLinks,
+    Popup,
   },
   data() {
     return {
       show: false,
     };
+  },
+  methods: {
+    showPopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
+    },
+    closePopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
+    },
+  },
+  computed: {
+    popupLinksShown() {
+      return this.$store.getters['popup/getPopupLinksShown'];
+    },
   },
 };
 </script>

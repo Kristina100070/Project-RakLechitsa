@@ -2,7 +2,7 @@
   <div class="popup">
     <img
       @click="$emit('closeClick')"
-      src="@/static/images/close_image.svg"
+      src="/images/close_image.svg"
       alt="close"
       class="popup__close"
     />
@@ -38,6 +38,7 @@ export default {};
   background-repeat: no-repeat;
   background: center;
   cursor: pointer;
+  z-index: 2;
 }
 @media screen and (max-width: 767px) {
   .popup {

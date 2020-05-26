@@ -3,7 +3,11 @@
     <nav class="menu">
       <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
       <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
-      <nxt-button v-if="show" @btnClick="showPopup" className="button_menu">
+      <nxt-button
+        v-if="showPopup"
+        @btnClick="showPopup"
+        className="button_menu"
+      >
         {{ text }}</nxt-button
       >
     </nav>

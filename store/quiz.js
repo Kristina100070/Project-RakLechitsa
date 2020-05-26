@@ -97,4 +97,13 @@ export const actions = {
       currentQuestion: currentQuestion - 1,
     });
   },
+  async LAST_STEP({ commit, state }) {
+    const { currentQuestion } = state;
+    if (currentQuestion < 13) {
+      return;
+    }
+    await commit('setCurrentQuestion', {
+      currentQuestion: 1,
+    });
+  },
 };
