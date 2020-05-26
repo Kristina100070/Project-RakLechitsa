@@ -1,11 +1,15 @@
 <template>
   <footer class="footer">
-    <container>
+    <container class="footer__container">
       <div class="footer__info">
         <p class="footer__thanksgiving">
           Спасибо всем, кто помог состояться этому проекту
         </p>
-        <main-menu class="footer__menu" />
+        <div class="footer__menu">
+          <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
+          <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
+        </div>
+
         <div class="footer__link">
           <p class="footer_margin-bottom">Мы в Инстаграме и Youtube</p>
           <a class="footer_margin-bottom">Поделитесь &#8599;</a>
@@ -21,17 +25,10 @@
 
 <script>
 import Container from '@/components/blocks/Container.vue';
-import Menu from '@/components/ui/Menu';
 
 export default {
   components: {
-    'main-menu': Menu,
     container: Container,
-  },
-  data() {
-    return {
-      show: false,
-    };
   },
 };
 </script>
@@ -40,13 +37,17 @@ export default {
 .footer {
   width: 100%;
   min-height: 356px;
+  background: #fbfbfb;
+  padding: 60px 0;
+}
+.footer__container {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background: #fbfbfb;
 }
 .footer__info {
+  min-height: 236px;
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -114,7 +115,6 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
   .footer__thanksgiving {
     width: 100%;

@@ -11,7 +11,7 @@
 <script>
 import Container from '@/components/blocks/Container.vue';
 import MobileIcon from '@/components/ui/MobileIcon.vue';
-import Menu from '@/components/ui/Menu';
+import Menu from '@/components/blocks/Menu';
 export default {
   components: {
     container: Container,
