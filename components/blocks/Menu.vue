@@ -3,6 +3,7 @@
     <nav class="menu">
       <nuxt-link to="/" class="menu__link">Главная</nuxt-link>
       <nuxt-link to="/stories" class="menu__link">Истории</nuxt-link>
+
       <nxt-button
         v-if="showPopup"
         @btnClick="showPopup"
@@ -24,7 +25,6 @@ export default {
   data() {
     return {
       text: 'Рассказать историю',
-      show: true,
     };
   },
   methods: {
@@ -40,6 +40,7 @@ export default {
   width: 100%;
   display: flex;
   align-items: center;
+  flex-direction: row;
 }
 .menu__link {
   font-weight: normal;
@@ -60,7 +61,9 @@ export default {
 }
 @media screen and (max-width: 768px) {
   .menu {
-    margin: 18px 50px;
+    display: flex;
+
+    align-items: flex-start;
   }
   .menu__link {
     font-size: 16px;

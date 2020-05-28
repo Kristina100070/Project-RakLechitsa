@@ -13,7 +13,7 @@
       placeholder="Напишите тут"
       v-model="answer"
     />
-    <div class="quiz__contact">
+    <div class="quiz__contacts">
       <div>
         <span class="quiz__text">Электронная почта</span>
 
@@ -75,7 +75,6 @@ export default {
 <style scoped>
 .quiz {
   width: 840px;
-  height: 650px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -108,6 +107,7 @@ export default {
   line-height: 24px;
   color: #000000;
   margin: 40px 0;
+  display: inline-block;
 }
 
 .quiz__container {
@@ -115,21 +115,22 @@ export default {
   align-items: center;
   margin-top: 50px;
 }
-.quiz__contact {
+.quiz__contacts {
   display: grid;
-  grid-template-columns: 400px 400px;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   grid-column-gap: 40px;
-  margin-top: 40px;
 }
 .quiz__input {
   border: none;
   padding: 12px 0;
   border-bottom: 1px solid #e7e7e7;
   width: 100%;
+  font-size: 18px;
+  line-height: 24px;
 }
 .quiz__policy {
-  width: 378px;
+  max-width: 378px;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
@@ -141,11 +142,97 @@ export default {
   margin-left: 30px;
 }
 @media screen and (max-width: 1439px) {
+  .quiz {
+    width: 720px;
+  }
+  .quiz__title {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .quiz__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .quiz__text {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .quiz__input {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 @media screen and (max-width: 1279px) {
+  .quiz__text {
+    font-size: 15px;
+    line-height: 22px;
+  }
+  .quiz__subtitle {
+    font-size: 15px;
+    line-height: 22px;
+  }
 }
+
 @media screen and (max-width: 1023px) {
+  .quiz {
+    width: 500px;
+  }
+  .quiz__title {
+    font-size: 26px;
+    line-height: 30px;
+  }
+  .quiz__subtitle {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .quiz__text {
+    font-size: 15px;
+    line-height: 19px;
+  }
+  .quiz__input {
+    padding: 10px 0;
+    font-size: 15px;
+    line-height: 19px;
+  }
 }
+
 @media screen and (max-width: 767px) {
+  .quiz {
+    width: 260px;
+  }
+  .quiz__title {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  .quiz__subtitle {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .quiz__text {
+    font-size: 13px;
+    line-height: 16px;
+    margin: 30px 0 20px;
+  }
+  .quiz__contacts {
+    display: flex;
+    flex-direction: column;
+  }
+  .quiz__input {
+    font-size: 13px;
+    line-height: 16px;
+  }
+  .quiz__container {
+    flex-direction: column;
+    margin-top: 35px;
+  }
+  .quiz__policy {
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .quiz__policy-container {
+    margin-left: 0;
+    max-width: 100%;
+    margin-top: 10px;
+  }
 }
 </style>

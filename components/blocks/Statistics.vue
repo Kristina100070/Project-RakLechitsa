@@ -1,11 +1,10 @@
 <template>
-  <container>
-    <section class="statistics">
+  <section class="statistics">
+    <container>
       <h2 class="statistics__title">Статистика по онкозаболеваниям</h2>
-
-      <card />
-    </section>
-  </container>
+    </container>
+    <card />
+  </section>
 </template>
 
 <script>
@@ -38,43 +37,36 @@ export default {
   .statistics {
     padding: 90px 0;
   }
-
   .statistics__title {
     font-size: 28px;
     line-height: 32px;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .statistics {
     padding: 80px 0;
-    overflow: auto;
   }
-
   .statistics__title {
     font-size: 24px;
     line-height: 28px;
   }
 }
-
 @media screen and (max-width: 768px) {
   .statistics {
-    padding: 80px 0;
+    padding: 70px 0;
   }
   .statistics__title {
-    font-size: 1.5em;
-    line-height: 1.167;
+    text-align: center;
   }
 }
-
 @media screen and (max-width: 320px) {
   .statistics {
     padding: 50px 0;
   }
-
   .statistics__title {
-    font-size: 1.125em;
-    line-height: 1.167;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: left;
   }
 }
 </style>
