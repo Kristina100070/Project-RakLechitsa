@@ -28,11 +28,6 @@
 </template>
 
 <script>
-//
-//     <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
-//   <Popup v-if="popupShown" @closeClick="closePopup">
-//     <quiz2></quiz2>
-//   </Popup>
 import Button from '@/components/ui/Button';
 import Container from '@/components/blocks/Container';
 import Popup from '@/components/blocks/Popup';

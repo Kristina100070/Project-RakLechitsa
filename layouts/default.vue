@@ -17,7 +17,7 @@ import Footer from '@/components/blocks/Footer';
 import Popup from '@/components/blocks/Popup';
 import Quiz from '@/components/blocks/Quiz';
 import Overlay from '@/components/ui/Overlay';
-import Menu from '@/components/ui/Menu';
+import Menu from '@/components/blocks/Menu';
 
 export default {
   components: {
