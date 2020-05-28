@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-    <h1 class="header__logo">
+    <nuxt-link to="/" v-if="$route.path !== '/'" class="header__logo"
+      >Проект Благотворительного Фонда Константина Хабенского</nuxt-link
+    >
+    <h1 class="header__logo" v-else>
       Проект Благотворительного Фонда Константина Хабенского
     </h1>
     <main-menu @btnClick="$emit('btnClick')" class="header__menu" />

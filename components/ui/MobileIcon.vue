@@ -1,13 +1,8 @@
 <template>
-  <div>
-    <div
-      :class="[
-        'mobile-icon-menu',
-        { 'mobile-button_type_close': isMenuOpened },
-      ]"
-      @click="toggleMobile"
-    ></div>
-  </div>
+  <div
+    :class="['mobile-icon-menu', { 'mobile-button_type_close': isMenuOpened }]"
+    @click="toggleMobile"
+  ></div>
 </template>
 
 <script>
