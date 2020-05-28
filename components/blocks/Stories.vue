@@ -4,9 +4,13 @@
       <h2 class="stories__title">Истории неизлечимых превычек</h2>
       <!--    Делаем карточку -->
       <ul class="stories__container">
-        <li v-for="story in stories" :key="story.id" class="stories__item">
+        <li
+          v-for="story in storiesToRender"
+          :key="story.id"
+          class="stories__item"
+        >
           <story-card
-            :src="story.ImageUrl"
+            :src="defineImage(story.ImageUrl[0].formats)"
             :author="story.author"
             :text="story.title"
             @cardClick="goToDetail(story.id)"
@@ -39,12 +43,19 @@ export default {
     changeStartIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return '@/assets/images/noavatar.png';
+      }
+      return `${this.baseUrl}${formats.small.url}`;
+    },
   },
 
   data() {
     return {
       itemsPerPage: 8,
       startIndex: 0,
+      baseUrl: process.env.baseUrl,
     };
   },
 
@@ -57,9 +68,12 @@ export default {
           idx <= this.startIndex + this.itemsPerPage - 1
       );
     },
-    cards() {
+    stories() {
       return this.$store.getters['stories/getStories'];
     },
+  },
+  beforeMount() {
+    this.$store.dispatch('stories/fetchStories');
   },
 };
 </script>

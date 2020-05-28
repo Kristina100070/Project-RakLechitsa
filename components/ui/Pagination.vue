@@ -1,6 +1,25 @@
 <template>
   <div class="pagination">
     <div
+      :class="[
+        'pagination__item',
+        { pagination__item_active: index === active },
+      ]"
+      @click="startIndex()"
+    >
+      Первая
+    </div>
+    <div
+      :class="[
+        'pagination__item',
+        { pagination__item_active: index === active },
+      ]"
+      v-if="index != 1"
+      @click="onClickPreviousPage(index)"
+    >
+      &lsaquo;
+    </div>
+    <div
       v-for="index in pagesCount"
       :key="index"
       @click="setActive(index)"
@@ -11,12 +30,38 @@
     >
       {{ index }}
     </div>
+    <div
+      :class="[
+        'pagination__item',
+        { pagination__item_active: index === active },
+      ]"
+    >
+      &rsaquo;
+    </div>
+    <div
+      :class="[
+        'pagination__item',
+        { pagination__item_active: index === active },
+      ]"
+      @click="lastIndex(index)"
+    >
+      Последняя
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    startIndex: {
+      type: Number,
+      default: 0,
+    },
+    maxVisibleButtons: {
+      type: Number,
+      required: false,
+      default: 3,
+    },
     totalItems: {
       type: Number,
       default: 0,
@@ -41,6 +86,18 @@ export default {
       this.active = index;
       this.$emit('onPageChanged', index);
     },
+    onClickPreviousPage(index) {
+      this.active = index;
+      this.$emit('onPageChanged', index - 1);
+    },
+    startIndex(index) {
+      this.active = index;
+      this.$emit('onPageChanged', (index = 1));
+    },
+    lastIndex(index) {
+      this.active = index;
+      this.$emit('onPageChanged', (index = this.pagesCount));
+    },
   },
 };
 </script>
@@ -50,8 +107,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 466px;
-  margin: 140px auto 0;
+  margin: 140px auto 100px;
 }
 .pagination__item {
   width: 58px;
@@ -79,6 +135,9 @@ export default {
 }
 
 @media screen and (max-width: 1280px) {
+  .pagination {
+    margin: 130px auto 90px;
+  }
   .pagination__item {
     width: 56px;
     height: 56px;
@@ -86,9 +145,18 @@ export default {
 }
 
 @media screen and (max-width: 1024px) {
+  .pagination {
+    margin: 130px auto 80px;
+  }
   .pagination__item {
     width: 50px;
     height: 50px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .pagination {
+    margin: 50px auto 98px;
   }
 }
 </style>

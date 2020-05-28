@@ -59,6 +59,6 @@ export default {
   },
 
   env: {
-    baseUrl: 'https://strapi.kruzhok.io/',
+    baseUrl: 'https://strapi.kruzhok.io',
   },
 };
