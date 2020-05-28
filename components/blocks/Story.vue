@@ -5,12 +5,11 @@
         <div class="story__title-container">
           <img src="" alt="" class="story__photo" />
           <h2 class="story__title">
-            Александр Тарханов: «Я не могу победить свою пунктуальность в
-            отличии от рака»
+            {{ story.title }}
           </h2>
           <div class="story__link-container">
             <nxt-link url="#" class="story__link">Поделитесь &#8599;</nxt-link>
-            <p class="story__date">{{ date }}</p>
+            <p class="story__date">{{ story.date }}</p>
           </div>
         </div>
         <p class="story__text">
@@ -69,10 +68,15 @@ export default {
     'nxt-link': Link,
     Container,
   },
-  data() {
-    return {
-      date: '20 апреля 2018',
-    };
+
+  async fetch({ store, route }) {
+    await store.dispatch('stories/fetchStoryWithId', { id: route.params.id });
+  },
+
+  computed: {
+    story() {
+      return this.$store.getters['stories/getCurrentStory'];
+    },
   },
 };
 </script>

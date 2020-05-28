@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const state = () => ({
   stories: [],
-  currentStories: {},
+  currentStory: {},
 });
 
 export const mutations = {
@@ -20,12 +20,12 @@ export const actions = {
       });
     });
   },
-  fetchStoriesWithId(state, payload) {
+  fetchStoryWithId(state, payload) {
     return axios
       .get(`https://strapi.kruzhok.io/stories/${payload.id}`)
       .then(response => {
         return state.commit('setState', {
-          title: 'currentStories',
+          title: 'currentStory',
           value: response.data,
         });
       });
@@ -36,7 +36,7 @@ export const getters = {
   getStories(state) {
     return state.stories;
   },
-  getCurrentLesson(state) {
-    return state.currentStories;
+  getCurrentStory(state) {
+    return state.currentStory;
   },
 };
