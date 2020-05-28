@@ -1,5 +1,5 @@
 <template>
-  <div class="stories__story" @click="$emit('cardClick')">
+  <div class="story" @click="$emit('cardClick')">
     <img :src="src" :alt="author" class="story__image" />
     <p class="story__title">{{ author }}</p>
     <p class="story__subtitle">{{ text }}</p>
@@ -13,13 +13,14 @@ export default {
 </script>
 
 <style scoped>
-.stories__story {
+.story {
   max-width: 300px;
   cursor: pointer;
 }
 .story__image {
   width: 300px;
   height: 300px;
+  object-fit: cover;
 }
 
 .story__title {

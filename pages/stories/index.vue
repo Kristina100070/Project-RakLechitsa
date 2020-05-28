@@ -6,15 +6,23 @@
     </h2>
     <!-- делаем поиск по страничке -->
     <form class="search">
-      <searchinput class="search-input" />
-      <searchbutton class="search-button">Поиск</searchbutton>
+      <searchinput v-model="appliedStoriesName" class="search-input" />
+      <searchbutton
+        @click="appliedStoriesName = storiesName"
+        class="search-button"
+        >Поиск</searchbutton
+      >
     </form>
 
     <!-- делаем функцию карточек -->
     <ul class="stories__container">
-      <li v-for="story in stories" :key="story.id" class="stories__item">
+      <li
+        v-for="story in storiesToRender"
+        :key="story.id"
+        class="stories__item"
+      >
         <story-card
-          :src="baseUrl / stories / ImageUrl.formats.small.url"
+          :src="defineImage(story.ImageUrl[0].formats)"
           :author="story.author"
           :text="story.title"
           @cardClick="goToDetail(story.id)"
@@ -50,16 +58,42 @@ export default {
     changeStartIndex(index) {
       this.startIndex = (index - 1) * this.itemsPerPage;
     },
+    defineImage(formats) {
+      if (!formats.small || !formats.small.url) {
+        return `@/assets/images/noavatar.png`;
+      }
+      return `${this.baseUrl}${formats.small.url}`;
+    },
   },
 
   data() {
     return {
       itemsPerPage: 16,
       startIndex: 0,
+      baseUrl: process.env.baseUrl,
+      storiesName: '',
+      appliedStoriesName: '',
     };
   },
 
   computed: {
+    initiallyFilteredStories() {
+      const { stories } = this.$store.state;
+      if (!this.appliedStoriesName || this.appliedStoriesName === '') {
+        return stories.stories;
+      }
+      return stories.stories.filter(
+        (item, idx) => item.author.indexOf(this.appliedStoriesName) > -1
+      );
+    },
+    storiesToRender() {
+      const { stories } = this.$store.state;
+      return stories.stories.filter(
+        (item, idx) =>
+          idx >= this.startIndex &&
+          idx <= this.startIndex + this.itemsPerPage - 1
+      );
+    },
     stories() {
       return this.$store.getters['stories/getStories'];
     },
