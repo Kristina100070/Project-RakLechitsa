@@ -29,7 +29,9 @@
               >Youtube</a
             >
           </p>
-          <a class="footer__link_bottom">Поделитесь &#8599;</a>
+          <a class="footer__link_bottom" @click="showPopupLinks"
+            >Поделитесь &#8599;</a
+          >
         </div>
       </div>
       <div class="footer__copyright">
@@ -44,16 +46,41 @@
           >
         </p>
       </div>
+      <Popup v-if="popupLinksShown" @closeClick="closePopupLinks">
+        <QuizLinks />
+      </Popup>
     </container>
   </footer>
 </template>
 
 <script>
 import Container from '@/components/blocks/Container.vue';
+import QuizLinks from '@/components/blocks/QuizLinks';
+import Popup from '@/components/blocks/Popup';
 
 export default {
   components: {
     container: Container,
+    QuizLinks,
+    Popup,
+  },
+  data() {
+    return {
+      show: false,
+    };
+  },
+  methods: {
+    showPopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
+    },
+    closePopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
+    },
+  },
+  computed: {
+    popupLinksShown() {
+      return this.$store.getters['popup/getPopupLinksShown'];
+    },
   },
 };
 </script>

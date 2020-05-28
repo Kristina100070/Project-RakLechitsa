@@ -1,9 +1,10 @@
 <template>
   <div class="root">
     <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
-    <Popup v-if="popupShown" @closeClick="closePopup">
-      <quiz></quiz>
-    </Popup>
+    <popup v-if="popupShown" @closeClick="closePopup">
+      <quiz />
+    </popup>
+
     <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
     <main-header />
     <nuxt />
@@ -22,7 +23,7 @@ import Menu from '@/components/blocks/Menu';
 export default {
   components: {
     'main-header': Header,
-    Popup,
+    popup: Popup,
     quiz: Quiz,
     overlay: Overlay,
     'main-footer': Footer,
@@ -31,11 +32,18 @@ export default {
   methods: {
     closePopup() {
       this.$store.commit('popup/togglePopup');
+      this.$store.dispatch('quiz/LAST_STEP');
+    },
+    closePopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
     },
   },
   computed: {
     popupShown() {
       return this.$store.getters['popup/getPopupShown'];
+    },
+    popupLinksShown() {
+      return this.$store.getters['popup/getPopupLinksShown'];
     },
     isMobileMenuOpened() {
       return this.$store.getters['mobile-menu/getMobileMenuState'];

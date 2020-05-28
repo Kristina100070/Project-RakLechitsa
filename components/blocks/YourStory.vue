@@ -43,10 +43,17 @@
               Оставить контакт (почту или номер телефона) и мы свяжемся с вами,
               зададим вопросы, уточним детали вашей истории..
             </p>
-            <your-story-button class="your-story__button">
+            <your-story-button
+              @btnClick="showPopupForm"
+              class="your-story__button"
+            >
               {{ text2 }}</your-story-button
             >
           </div>
+          <overlay v-if="popupFormShown" @clickOverlay="closePopup"></overlay>
+          <Popup v-if="popupFormShown" @closeClick="closePopupForm">
+            <QuizContacts />
+          </Popup>
         </div>
       </section>
     </container>
@@ -56,11 +63,17 @@
 <script>
 import Container from '@/components/blocks/Container.vue';
 import Button from '@/components/ui/Button';
+import QuizContacts from '@/components/blocks/QuizContacts';
+import Overlay from '@/components/ui/Overlay';
+import Popup from '@/components/blocks/Popup';
 
 export default {
   components: {
     container: Container,
     'your-story-button': Button,
+    overlay: Overlay,
+    QuizContacts,
+    Popup,
   },
   data() {
     return {
@@ -76,8 +89,19 @@ export default {
     clickOff() {
       this.isActive = true;
     },
-    showPopup() {
-      this.$store.commit('popup/togglePopup');
+    showPopupForm() {
+      this.$store.commit('popup/togglePopupForm');
+    },
+    closePopupForm() {
+      this.$store.commit('popup/togglePopupForm');
+    },
+  },
+  computed: {
+    popupFormShown() {
+      return this.$store.getters['popup/getPopupFormShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
     },
   },
 };
