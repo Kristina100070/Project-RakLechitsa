@@ -11,14 +11,13 @@
         </p>
       </div>
       <div class="social-network__container">
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
-        <div class="social-network__image"></div>
+        <ul class="social-network__container">
+          <li v-for="photo in instagram" :key="instagram.indexOf(photo)">
+            <a :href="photo.url">
+              <img :src="photo.display_url" class="social-network__image" />
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   </container>
@@ -30,6 +29,14 @@ import Container from '~/components/blocks/Container';
 export default {
   components: {
     container: Container,
+  },
+  computed: {
+    instagram() {
+      return this.$store.getters['instagram/getPosts'];
+    },
+    beforeMount() {
+      this.$store.dispatch('statistics/fetchStatistics');
+    },
   },
 };
 </script>

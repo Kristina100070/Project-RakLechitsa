@@ -3,7 +3,7 @@
     <div class="description">
       <div class="description__history">
         <h2 class="description__title">
-          Истории людей, победивших рак, но не свои привычки
+          Заголовок
         </h2>
         <p class="description__subtitle">
           Есть вещи, которые не лечатся. Вещи ставшие частью нашего «я», фобии,
@@ -27,6 +27,7 @@
 </template>
 
 <script>
+// в верстке поменять место контейнера
 import Container from '@/components/blocks/Container';
 import VideoIframe from '@/components/blocks/VideoIframe';
 export default {
