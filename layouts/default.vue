@@ -1,13 +1,65 @@
 <template>
-  <div>
+  <div class="root">
+    <overlay v-if="popupShown" @clickOverlay="closePopup"></overlay>
+    <popup v-if="popupShown" @closeClick="closePopup">
+      <quiz />
+    </popup>
+
+    <mobile-menu v-if="isMobileMenuOpened" class="main-mobile-menu" />
+    <main-header />
     <nuxt />
+    <main-footer />
   </div>
 </template>
 
+<script>
+import Header from '@/components/blocks/Header';
+import Footer from '@/components/blocks/Footer';
+import Popup from '@/components/blocks/Popup';
+import Quiz from '@/components/blocks/Quiz';
+import Overlay from '@/components/ui/Overlay';
+import Menu from '@/components/blocks/Menu';
+
+export default {
+  components: {
+    'main-header': Header,
+    popup: Popup,
+    quiz: Quiz,
+    overlay: Overlay,
+    'main-footer': Footer,
+    'mobile-menu': Menu,
+  },
+  methods: {
+    closePopup() {
+      this.$store.commit('popup/togglePopup');
+      this.$store.dispatch('quiz/LAST_STEP');
+    },
+    closePopupLinks() {
+      this.$store.commit('popup/togglePopupLinks');
+    },
+  },
+  computed: {
+    popupShown() {
+      return this.$store.getters['popup/getPopupShown'];
+    },
+    popupLinksShown() {
+      return this.$store.getters['popup/getPopupLinksShown'];
+    },
+    isMobileMenuOpened() {
+      return this.$store.getters['mobile-menu/getMobileMenuState'];
+    },
+  },
+};
+</script>
+
 <style>
+.root {
+  margin: 0, auto;
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+}
+
 html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -16,40 +68,18 @@ html {
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+@media screen and (max-width: 768px) {
+  .main-mobile-menu {
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
